@@ -73,6 +73,11 @@ main {
     font-family: 'Anton', sans-serif;
 }
 
+.explos > p {
+    background: rgba(0, 0, 0, 0.5);
+    border: white 0.08em solid;
+}
+
 .explos p {
     color: white;
     font-size: 1.1em;

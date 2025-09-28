@@ -103,11 +103,12 @@ main {
     position: absolute;
     right: 0;
     bottom: 0;
-    margin: auto 2.2em 0.5em; 
+    margin: auto 1.73em 0.5em; 
 }
 .histoire > p{
-    margin: 2.2em 2.5em 0.5em 2.2em;
+    margin: 2.2em 1.9em 0.5em 1.9em;
     line-height: 1.6;
+    padding: 0.2em 0.5em 0.3em 0.5em;
 }
 .exploration {
     display: flex;
@@ -116,8 +117,9 @@ main {
 }
 .exploration p{
     flex-basis: 100%;
-    margin: 1.5em 2.2em 1.5em 2.2em;
+    margin: 1.5em 1.9em 1.5em 1.9em;
     line-height: 1.6;
+    padding: 0.2em 0.5em 0.3em 0.5em;
 }
 .exploration article {
     display: flex;
