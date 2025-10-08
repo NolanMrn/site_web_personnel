@@ -8,4 +8,14 @@ function getMoisFr($numero) {
     ];
     return $mois[$numero] ?? '';
 }
+
+function getHistoireLieux($conn, $idL, $categorie) {
+    $statement = $conn->prepare(
+        'SELECT histoire_lieux FROM DESCRIPTIFLIEUX WHERE idL = ? AND nom_categorie = ?');
+    $statement->bind_param("ss", $idL, $categorie);
+    $statement->execute();
+    $result = $statement->get_result();
+    $histoireLieux = $result->fetch_assoc(); 
+    return $histoireLieux['histoire_lieux'] ?? '';
+}
 ?>
