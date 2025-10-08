@@ -19,17 +19,6 @@ function getHistoireLieux($conn, $idL, $categorie) {
     return $histoireLieux['histoire_lieux'] ?? '';
 }
 
-function getParagraphe($conn, $idL, $categorie, $numParagraphe) {
-    $statement = $conn->prepare(
-        'SELECT paragraphe1, paragraphe2, paragraphe3, paragraphe4, paragraphe5 
-        FROM DESCRIPTIFLIEUX WHERE idL = ? AND nom_categorie = ?');
-    $statement->bind_param("ss", $idL, $categorie);
-    $statement->execute();
-    $result = $statement->get_result();
-    $paragraphes = $result->fetch_assoc(); 
-    return $paragraphes['paragraphe' . $numParagraphe] ?? '';
-}
-
 function getStrucure($conn, $idL, $categorie){
     $statement = $conn->prepare(
         'SELECT * FROM STRUCTURE WHERE idL = ? AND nom_categorie = ? ORDER BY ordre_structure'
@@ -48,5 +37,15 @@ function getImageGalerie($conn, $refGallerie){
     $statement->execute();
     $images = $statement->get_result();
     return $images;
+}
+
+function getParagraphe($conn, $refGallerie){
+    $statement = $conn->prepare(
+        'SELECT * FROM PARAGRAPHE where idG = ?'
+    );
+    $statement->bind_param("i", $refGallerie);
+    $statement->execute();
+    $paragraphe = $statement->get_result();
+    return $paragraphe;
 }
 ?>

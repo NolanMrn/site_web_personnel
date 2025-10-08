@@ -1,4 +1,5 @@
 drop table if exists IMAGEGALLERIE;
+drop table if exists PARAGRAPHE;
 drop table if exists GALLERIE;
 drop table if exists STRUCTURE;
 drop table if exists DESCRIPTIFLIEUX;
@@ -24,11 +25,6 @@ create table DESCRIPTIFLIEUX (
     nom_categorie varchar(30),
     nb_paraph_lieux int,
     histoire_lieux longtext,
-    paragraphe1 longtext,
-    paragraphe2 longtext,
-    paragraphe3 longtext,
-    paragraphe4 longtext,
-    paragraphe5 longtext,
     primary key (idL, nom_categorie),
     foreign key (nom_categorie) references CATEGORIE(nom_categorie),
     foreign key (idL) references LIEUX(idL)
@@ -48,6 +44,13 @@ create table IMAGEGALLERIE (
     chemin varchar(200),
     ordreImg int,
     cadrage enum('vertical', 'horizontal'),
+    foreign key (idG) references GALLERIE(idG)
+);
+
+create table PARAGRAPHE (
+    idP int auto_increment primary key,
+    idG int,
+    paragraphe longtext,
     foreign key (idG) references GALLERIE(idG)
 );
 
