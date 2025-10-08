@@ -20,6 +20,10 @@ if ($lieu) {
     $moisChiffre = substr($lieu["date_explo"], 5, 2);
     $moisLettre = getMoisFr($moisChiffre);
     $histoireLieux = getHistoireLieux($conn, $lieu["idL"], $lieu["nom_categorie"]);
+    $paragraphes = [];
+    for ($i = 1; $i <= 5; $i++) {
+        $paragraphes[$i] = getParagraphe($conn, $lieu["idL"], $lieu["nom_categorie"], $i);
+    }
 } else {
     die ("<p>Lieu introuvable 😕</p>");
 }
@@ -89,8 +93,9 @@ if ($lieu) {
                 ?>
             </section>
             <section class="exploration">
-                <p>On remarque, en arrivant sur les lieux, que la végétation a repris ses droits depuis longtemps. Un ancien bassin 
-                    entoure le château, et plusieurs dépendances se trouvent sur le domaine, sans présenter un grand intérêt.</p>
+                <?php
+                    echo "<p>{$paragraphes[1]}</p>";
+                    ?>
                 <article class="horizontal">
                     <img src="/site_web/img/chateaux/bois/image1.jpeg" alt="">
                 </article>
@@ -100,10 +105,9 @@ if ($lieu) {
                 <article class="horizontal">
                     <img src="/site_web/img/chateaux/bois/image3.jpeg" alt="">
                 </article>
-                <p>Dans le château, on ne trouve presque aucun tag ni trace de vandalisme ; le lieu semble seulement avoir été marqué par 
-                    le temps. Le plafond s’effrite et l’ensemble est très dégradé. Les pièces sont vides, à l’exception de deux anciennes 
-                    machines qui servaient probablement à l’époque au vétérinaire. Celle située à droite est un tarare, utilisé autrefois 
-                    pour nettoyer le grain.</p>
+                <?php
+                    echo "<p>{$paragraphes[2]}</p>";
+                    ?>
                 <article class="vertical">
                     <img src="/site_web/img/chateaux/bois/image4.jpeg" alt="">
                 </article>
@@ -122,8 +126,9 @@ if ($lieu) {
                 <article class="horizontal">
                     <img src="/site_web/img/chateaux/bois/image9.jpeg" alt="">
                 </article>
-                <p>Un seul escalier permet d’accéder à l’étage du château. Malheureusement, une fois arrivé en haut, il est impossible 
-                    d’avancer davantage en raison du plancher qui s’est effondré à plusieurs endroits.</p>
+                <?php
+                    echo "<p>{$paragraphes[3]}</p>";
+                    ?>
                 <article class="vertical">
                     <img src="/site_web/img/chateaux/bois/image10.jpeg" alt="">
                 </article>
