@@ -8,16 +8,13 @@ if (isset($_GET['categorie'])) {
     die(header('Location: /404.php'));
 }
 
-$statement = $conn->prepare('SELECT * FROM LIEUX WHERE nom_categorie = ?');
-$statement->bind_param("s", $categorie);
-$statement->execute();
-$result = $statement->get_result();
-$lieu = $result->fetch_assoc();
+$description = getDescription($conn, $categorie);
+$lieux = getAllLieuxCategorie($conn, $categorie);
+$nbLieux = $lieux->num_rows;
 ?>
 
 <!DOCTYPE html>
 <html>
-
 <head>
     <meta charset="utf-8">
     <link rel="stylesheet" type="text/css" href="/site_web/css/categorie/positionnement.css">
@@ -27,30 +24,27 @@ $lieu = $result->fetch_assoc();
     <link href="https://fonts.googleapis.com/css2?family=Antonio&display=swap" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Anton&display=swap" rel="stylesheet">
 </head>
-
 <body>
-    <?php
-    include 'header.php';
-    ?>
+    <?php include 'header.php'; ?>
     <main>
         <div class="container">
             <section class="explos">
-                <?php
-                echo "<h1>Catégorie : {$categorie}</h1>";
-                $description = getDescription($conn, $categorie);
-                echo "<p>{$description}</p>"; 
+                <?php 
+                printf('<h1>Catégorie : %s</h1>', htmlspecialchars($categorie));
+                printf('<p>%s</p>', htmlspecialchars($description));
                 ?>
                 <section class="explos_photos">
                     <?php
-                    $result = getAllLieuxCategorie($conn, $categorie);
-                    $nbLieux = $result->num_rows;
-                    while ($lieu = $result->fetch_assoc()) {
-                        $cheminImg = getImageBanniere($conn, $lieu["idL"], $categorie);
-                        $pays = getPays($conn, $lieu["idL"], $categorie);
-                        $nom = $lieu["nom"];
-                        $annee = substr($lieu["date_explo"], 0, 4);
-                        $moisChiffre = substr($lieu["date_explo"], 5, 2);
-                        $lienUrl = "/site_web/php/lieu_indiv.php?slug={$lieu["slug"]}&categorie={$categorie}";
+                    while ($lieu = $lieux->fetch_assoc()) {
+                        $cheminImg = htmlspecialchars(getImageBanniere($conn, $lieu["idL"], $categorie));
+                        $pays = htmlspecialchars(getPays($conn, $lieu["idL"], $categorie));
+                        $nom = htmlspecialchars($lieu["nom"]);
+                        $annee = htmlspecialchars(substr($lieu["date_explo"], 0, 4));
+                        $moisChiffre = htmlspecialchars(substr($lieu["date_explo"], 5, 2));
+                        $slug = htmlspecialchars($lieu["slug"]);
+                        $lienUrl = htmlspecialchars(
+                            "/site_web/php/lieu_indiv.php?slug={$slug}&categorie={$categorie}");
+                        
                         echo "<article>
                                 <img src=\"{$cheminImg}\" alt=\"\">
                                 <div class=\"content\">
@@ -75,12 +69,12 @@ $lieu = $result->fetch_assoc();
                     }
                     $reste = $nbLieux % 3;
                     if ($reste == 0) {
-                        $nbAAjouter = 0;
+                        $nbAjouter = 0;
                     } else {
-                        $nbAAjouter = 3 - $reste;
+                        $nbAjouter = 3 - $reste;
                     }
-                    for ($i = 0; $i < $nbAAjouter; $i++) {
-                        echo "<article style=\"background-color: #222222;\"></article>";
+                    for ($i = 0; $i < $nbAjouter; $i++) {
+                        printf("<article style=\"background-color: #222222;\"></article>");
                     }
                     ?>
                 </section>
@@ -88,3 +82,4 @@ $lieu = $result->fetch_assoc();
         </div>
     </main>
 </body>
+</html>
