@@ -34,11 +34,15 @@ function initSection(div) {
 
 
 const page = document.querySelector('.container');
-let nbSection = 0;
+let nbSection = parseInt(page.dataset.nbsections);
+const nbSectionsInput = document.getElementById('nbSections');
+
 const btnAjouterSection = document.querySelector('.btn-ajouter_section');
 
 btnAjouterSection.addEventListener('click', () => {
     nbSection++;
+    page.dataset.nbsections = nbSection;
+    nbSectionsInput.value = nbSection;
     const nouvelleSection = document.createElement('div');
     nouvelleSection.classList.add('section', 'section' + nbSection);
     nouvelleSection.innerHTML = `
@@ -75,5 +79,7 @@ btnSupprimerSection.addEventListener('click', () => {
             derniereSection.remove();
         }
     nbSection--;
+    page.dataset.nbsections = nbSection;
+    nbSectionsInput.value = nbSection;
     }
 });

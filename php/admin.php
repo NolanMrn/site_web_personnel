@@ -4,6 +4,7 @@
 
     $categories = getAllCategories($conn);
     $pays = getAllPays($conn);
+    $nbSections = 0;
     ?>
 
     <!DOCTYPE html>
@@ -13,16 +14,17 @@
         <link rel="stylesheet" type="text/css" href="/site_web/css/admin/admin.css">
         <link rel="stylesheet" type="text/css" href="/site_web/css/header/header.css">
         <title>Exploratio_nln</title>
-        <link rel="icon" type="image/PNG" href="/site_web/img/photo_profil.png">
+        <link rel="icon" type="image/PNG" href="/site_web/img/accueil/photo_profil.png">
         <link href="https://fonts.googleapis.com/css2?family=Antonio&display=swap" rel="stylesheet">
         <link href="https://fonts.googleapis.com/css2?family=Anton&display=swap" rel="stylesheet">
     </head>
     <body>
         <?php include 'header.php'; ?>
         <main>
-            <div class="container">
+            <div class="container" data-nbSections = "<?php echo $nbSections ?>">
                 <h1>Ajouter un lieu</h1>
-                <form method="POST" action="">
+                <form method="POST" action="save_lieu.php">
+                    <input type="hidden" name="nbSections" id="nbSections" value="<?php echo $nbSections; ?>">
                     <div class="form-group">
                         <label for="nom">Nom :</label>
                         <input type="text" id="nom" name="nom" required>
@@ -65,7 +67,7 @@
                     </div>
                     <div class="form-group">
                         <label for="date_explo">Date exploration :</label>
-                        <input type="text" id="date_explo" name="date_explo" placeholder="Sous la forme MM/AAAA" required>
+                        <input type="text" id="date_explo" name="date_explo" placeholder="Sous la forme AAAA-MM-JJ" required>
                     </div>
                     <div class="form-group">
                         <label for="num_banniere">Num photo bannière :</label>

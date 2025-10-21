@@ -29,7 +29,7 @@ $histoireLieux = getHistoireLieux($conn, $lieu["idL"], $lieu["nom_categorie"]);
     <link rel="stylesheet" type="text/css" href="/site_web/css/individuel/individuel.css">
     <link rel="stylesheet" type="text/css" href="/site_web/css/header/header.css">
     <title>Exploratio_nln</title>
-    <link rel="icon" type="image/PNG" href="/site_web/img/photo_profil.png">
+    <link rel="icon" type="image/PNG" href="/site_web/img/accueil/photo_profil.png">
     <link href="https://fonts.googleapis.com/css2?family=Antonio&display=swap" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Anton&display=swap" rel="stylesheet">
 </head>
