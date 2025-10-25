@@ -50,14 +50,14 @@ $histoireLieux = getHistoireLieux($conn, $lieu["idL"], $lieu["nom_categorie"]);
                     ?>
                 </div>
                 <?php
-                printf('<p>%s</p>', htmlspecialchars($histoireLieux));
+                printf('<p>%s</p>', nl2br(htmlspecialchars($histoireLieux)));
                 ?>
             </section>
             <section class="exploration">
                 <?php
                 while ($bloc = $structure->fetch_assoc()) {
                     if ($bloc["types"] === "paragraphe") {
-                        printf('<p>%s</p>', htmlspecialchars(getParagraphe($conn, $bloc["ref"])));
+                        printf('<p>%s</p>', nl2br(htmlspecialchars(getParagraphe($conn, $bloc["ref"]))));
                     }   else if ($bloc["types"] === "galerie"){
                         $images = getImageGalerie($conn, $bloc["ref"]);
                         foreach ($images as $img) {

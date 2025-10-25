@@ -150,6 +150,10 @@ function validerFormulaire() {
         alert("Numéro de photo de bannière invalide, utilisé un numéro positif")
         return false;
     }
+    if (nbPhotoTotal === 0) {
+        alert("Veuillez mettre au moins une photo")
+        return false;
+    }
     if (numBanniere > nbPhotoTotal) {
         alert("Numéro de photo de bannière invalide, utilisé un numéro d'image qui existe (inférieur à " + (nbPhotoTotal + 1) + (")"))
         return false;

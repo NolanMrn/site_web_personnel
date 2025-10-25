@@ -6,6 +6,7 @@ $nbSections = $_POST['nbSections'] ?? 0;
 $nom = $_POST['nom'] ?? '';
 $slug = $_POST['slug'] ?? '';
 $num_banniere = $_POST['num_banniere'] ?? '';
+$histoire = $_POST['histoire'] ?? '';
 
 if ($_POST['nouveau_pays'] === "") {
     $pays = $_POST['pays'] ?? '';
@@ -20,31 +21,28 @@ if ($_POST['nouvelle_categorie'] === "") {
 $date_explo = $_POST['date_explo'] ?? '';
 $date_explo_bonne = $date_explo . "-01";
 
-$paragraphes = [];
-$ordres = [];
+$cadrage = [];
 $listeCadrageFinal = [];
-$listeParagrapheFinal = [];
+$listeParagraphe = [];
 for ($i = 0 ; $i < $nbSections ; $i++) {
-    $paragraphes[$i] = $_POST['paragraphe' . $i + 1] ?? '';
-    $ordres[$i] = $_POST['ordre' . $i + 1] ?? '';
+    $listeParagraphe[$i] = $_POST['paragraphe' . $i + 1] ?? '';
+    $cadrage[$i] = $_POST['ordre' . $i + 1] ?? '';
 
-    $morceauxOrdresAvecNum = explode(" / ", $ordres[$i]);
+    $morceauxOrdresAvecNum = explode(" / ", $cadrage[$i]);
     foreach ($morceauxOrdresAvecNum as $m) {
         $parts = explode(".", $m);
         if (isset($parts[1])) {
             $listeCadrageFinal[$i][] = $parts[1];
         }
     }
-    $listeParagrapheFinal[$i] = explode("\n", $paragraphes[$i]);
 }
 
 
 $SlugUnique = verifSlugUniqueParCategorie($conn, $slug, $categorie);
 if ($SlugUnique) {
-    echo "slug unique";
+    ajtLieuxEntier($conn, $categorie, $slug, $nom, $date_explo_bonne, $num_banniere, $pays, $histoire, $nbSections, $listeCadrageFinal, $listeParagraphe);
+    echo "Lieu ajouté !!";
 } else {
-    echo "slug déjà existant";
+    echo "slug existant, veuillez recharger le formulaire avec un nouveau slug";
 }
-
-/*ajtLieuxEntier($conn, $categorie, $slug, $nom, $date_explo_bonne, $num_banniere, $pays, $histoire, $nbSections, $listeCadrageFinal, $listeParagrapheFinal);*/
 ?>

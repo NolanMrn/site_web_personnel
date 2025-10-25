@@ -185,7 +185,6 @@ function ajtDescriptifLieux($conn, $idL, $slug, $categorie, $NumCheminImgBannier
 }
 
 function ajtGallerie($conn, $idL, $categorie, $nbSections){
-    echo $nbSections;
     for ($i = 0 ; $i < $nbSections ; $i++) {
         $statement = $conn->prepare(
             'INSERT INTO GALLERIE (idL, nom_categorie) 
@@ -225,7 +224,7 @@ function ajtParagraphe($conn, $galleriesArray, $listeParagraphe){
             'INSERT INTO PARAGRAPHE (idG, paragraphe)
             VALUES (?, ?)'
         );
-        $statement->bind_param("is", $gallerie["idG"], $listeParagraphe[$index][0]);
+        $statement->bind_param("is", $gallerie["idG"], $listeParagraphe[$index]);
         $statement->execute();
         $index++;
     }

@@ -7,18 +7,8 @@ values ("chateaux", "bois", "Le Château du Bois", "2023-12-01");
 
 insert into DESCRIPTIFLIEUX (idL, nom_categorie, chemin_img_banniere, pays,  histoire_lieux)
 values (1, "chateaux", "/site_web/img/chateaux/bois/image2.jpeg", "francais",
-"Très peu d’informations sont disponibles sur Internet, à l’exception de quelques photos 
-d’archives avec comme date 1890-1950. Par chance, des amis ont eu l’occasion de discuter 
-avec la propriétaire actuelle du domaine, qui nous a confié que sa famille a racheté le 
-domaine, avec le château, en 1971. À cette époque, la bâtisse était déjà à l’abandon. On 
-peut donc en déduire, grâce aux archives, que le château a surement été construit vers 
-1890 et qu’il a été abandonné dans les années 1950. De plus, elle a précisé que le château 
-avait été utilisé pendant un temps par un vétérinaire qui le louait. Celui-ci s’en servait 
-comme lieu de stockage pour les grains, ce qui explique la présence des machines que l’on 
-peut encore voir à l’intérieur.</br>
-Aujourd’hui, le château est en péril : les propriétaires, faute de moyens, le laissent se 
-détériorer progressivement, et sans restauration, il continuera à se dégrader jusqu’à 
-s’effondrer."
+"Très peu d’informations sont disponibles sur Internet, à l’exception de quelques photos d’archives avec comme date 1890-1950. Par chance, des amis ont eu l’occasion de discuter avec la propriétaire actuelle du domaine, qui nous a confié que sa famille a racheté le domaine, avec le château, en 1971. À cette époque, la bâtisse était déjà à l’abandon. On peut donc en déduire, grâce aux archives, que le château a surement été construit vers 1890 et qu’il a été abandonné dans les années 1950. De plus, elle a précisé que le château avait été utilisé pendant un temps par un vétérinaire qui le louait. Celui-ci s’en servait comme lieu de stockage pour les grains, ce qui explique la présence des machines que l’on peut encore voir à l’intérieur.
+Aujourd’hui, le château est en péril : les propriétaires, faute de moyens, le laissent se détériorer progressivement, et sans restauration, il continuera à se dégrader jusqu’à s’effondrer."
 );
 
 insert into GALLERIE (idL, nom_categorie) values (1, 'chateaux');
@@ -42,17 +32,9 @@ insert into IMAGEGALLERIE (idG, chemin, ordreImg, cadrage) values
 (3, '/site_web/img/chateaux/bois/image12.jpeg', 3, "vertical");
 
 insert into PARAGRAPHE (idG, paragraphe) values
-(1, "On remarque, en arrivant sur les lieux, que la végétation a repris ses droits depuis 
-longtemps. Un ancien bassin entoure le château, et plusieurs dépendances se trouvent sur 
-le domaine, sans présenter un grand intérêt."),
-(2, "Dans le château, on ne trouve presque aucun tag ni trace de vandalisme ; le lieu semble 
-seulement avoir été marqué par le temps. Le plafond s’effrite et l’ensemble est très 
-dégradé. Les pièces sont vides, à l’exception de deux anciennes machines qui servaient 
-probablement à l’époque au vétérinaire. Celle située à droite est un tarare, utilisé 
-autrefois pour nettoyer le grain."),
-(3, "Un seul escalier permet d’accéder à l’étage du château. Malheureusement, une fois arrivé 
-en haut, il est impossible d’avancer davantage en raison du plancher qui s’est effondré à 
-plusieurs endroits.");
+(1, "On remarque, en arrivant sur les lieux, que la végétation a repris ses droits depuis longtemps. Un ancien bassin entoure le château, et plusieurs dépendances se trouvent sur le domaine, sans présenter un grand intérêt."),
+(2, "Dans le château, on ne trouve presque aucun tag ni trace de vandalisme ; le lieu semble seulement avoir été marqué par le temps. Le plafond s’effrite et l’ensemble est très dégradé. Les pièces sont vides, à l’exception de deux anciennes machines qui servaient probablement à l’époque au vétérinaire. Celle située à droite est un tarare, utilisé autrefois pour nettoyer le grain."),
+(3, "Un seul escalier permet d’accéder à l’étage du château. Malheureusement, une fois arrivé en haut, il est impossible d’avancer davantage en raison du plancher qui s’est effondré à plusieurs endroits.");
 
 insert into STRUCTURE (idL, nom_categorie, ordre_structure, types, ref) VALUES
 (1, 'chateaux', 1, 'paragraphe', 1),
@@ -69,15 +51,8 @@ values ("chateaux", "douves", "Le Château aux Douves", "2023-08-01");
 
 insert into DESCRIPTIFLIEUX (idL, nom_categorie, chemin_img_banniere, pays, histoire_lieux)
 values (2, "chateaux", "/site_web/img/chateaux/douves/image1.jpeg", "francais",
-"Construit vers 1200 par la famille d’Hangest, le château a été détruit pendant la Guerre de 
-Cent Ans, puis reconstruit sous le règne de Charles V. Pris par les Anglais en 1418, il est 
-repris par les Français en 1449 et rebâti à la Renaissance. Pendant plusieurs siècles, il 
-appartient à la famille de Roncherolles et accueille notamment Henri IV. Aux XIXᵉ et XXᵉ 
-siècles, le château passe entre différentes familles nobles et industrielles.</br>
-Inhabité depuis 1998, il s’est fortement dégradé au fil des années. Aujourd’hui, il n’est 
-plus à l’abandon, il a été racheté par un couple dans le but de le restaurer et de le préserver.  
-Pour suivre toutes les actualités du château, vous pouvez consulter leur compte Instagram : 
-<a href='https://www.instagram.com/chateau_de_pont_saint_pierre/'>@chateau_de_pont_saint_pierre</a>"
+"Construit vers 1200 par la famille d’Hangest, le château a été détruit pendant la Guerre de Cent Ans, puis reconstruit sous le règne de Charles V. Pris par les Anglais en 1418, il est repris par les Français en 1449 et rebâti à la Renaissance. Pendant plusieurs siècles, il appartient à la famille de Roncherolles et accueille notamment Henri IV. Aux XIXᵉ et XXᵉ siècles, le château passe entre différentes familles nobles et industrielles.
+Inhabité depuis 1998, il s’est fortement dégradé au fil des années. Aujourd’hui, il n’est plus à l’abandon, il a été racheté par un couple dans le but de le restaurer et de le préserver. Pour suivre toutes les actualités du château, vous pouvez consulter leur compte Instagram : @chateau_de_pont_saint_pierre."
 );
 
 insert into GALLERIE (idL, nom_categorie) values (2, 'chateaux');
@@ -96,13 +71,8 @@ insert into IMAGEGALLERIE (idG, chemin, ordreImg, cadrage) values
 (5, '/site_web/img/chateaux/douves/image9.jpeg', 3, "horizontal");
 
 insert into PARAGRAPHE (idG, paragraphe) values
-(4, "La bâtisse, au style de château fort et entourée d’un vaste parc avec ses douves, est 
-aujourd’hui en très mauvais état. La cour intérieure est envahie par la végétation, et la 
-toiture menace de s’effondrer. Malgré ces dégradations, son allure défensive et impressionnante 
-reste encore bien perceptible."),
-(5, "L’intérieur reflète l’état de l’extérieur : les planchers sont très fragilisés par le temps 
-et presque tout l’étage est inaccessible. Un escalier subsiste également, mais également dans 
-un très mauvais état.");
+(4, "La bâtisse, au style de château fort et entourée d’un vaste parc avec ses douves, est aujourd’hui en très mauvais état. La cour intérieure est envahie par la végétation, et la toiture menace de s’effondrer. Malgré ces dégradations, son allure défensive et impressionnante reste encore bien perceptible."),
+(5, "L’intérieur reflète l’état de l’extérieur : les planchers sont très fragilisés par le temps et presque tout l’étage est inaccessible. Un escalier subsiste également, mais également dans un très mauvais état.");
 
 insert into STRUCTURE (idL, nom_categorie, ordre_structure, types, ref) VALUES
 (2, 'chateaux', 1, 'paragraphe', 4),
@@ -117,11 +87,8 @@ values ("chateaux", "colimacon", "Le Château Colimaçon", "2024-07-01");
 
 insert into DESCRIPTIFLIEUX (idL, nom_categorie, chemin_img_banniere, pays, histoire_lieux)
 values (3, "chateaux", "/site_web/img/chateaux/colimacon/image1.jpeg", "francais", 
-"Ce manoir doit son surnom à son grand escalier en colimaçon fait de mosaïques. Abandonné depuis 
-environ cinquante ans, il ne reste plus grand-chose à voir à l’intérieur. L’incendie de 2023, qui 
-a détruit une partie de la toiture, n’a fait qu’aggraver son état déjà fragile. Aujourd’hui, la 
-maison appartient à un propriétaire iranien qui ne s’en occupe plus, laissant le lieu tomber peu 
-à peu en ruine."
+"Ce manoir doit son surnom à son grand escalier en colimaçon fait de mosaïques. Abandonné depuis environ cinquante ans, il ne reste plus grand-chose à voir à l’intérieur. L’incendie de 2023, qui a détruit une partie de la toiture, n’a fait qu’aggraver son état déjà fragile.
+Aujourd’hui, la maison appartient à un propriétaire iranien qui ne s’en occupe plus, laissant le lieu tomber peu à peu en ruine."
 );
 
 insert into GALLERIE (idL, nom_categorie) values (3, 'chateaux');
@@ -147,15 +114,9 @@ insert into IMAGEGALLERIE (idG, chemin, ordreImg, cadrage) values
 (8, '/site_web/img/chateaux/colimacon/image14.jpeg', 5, "horizontal");
 
 insert into PARAGRAPHE (idG, paragraphe) values
-(6, "De l’extérieur, avec ses briques rouges et sa tour, cette demeure garde encore un certain 
-charme et se distingue facilement des nombreux chteaux abandonnées que l’on peut croiser un 
-peu partout."),
-(7, "Une fois la porte franchie, les pièces vides s’enchaînent, certaines plongées dans l’obscurité 
-à cause de fenêtres murées. On peut tout de même retrouver un imposant escalier en bois massif, 
-épargné par l’incendie. Aux étages, c’est la même ambiance : des pièces vides."),
-(8, "Place maintenant à la partie principale du manoir : son escalier en colimaçon. Il traverse 
-tous les étages et mène jusqu’à la terrasse sur le toit. Malheureusement, il est recouvert de 
-nombreux tags.");
+(6, "De l’extérieur, avec ses briques rouges et sa tour, cette demeure garde encore un certain charme et se distingue facilement des nombreux chteaux abandonnées que l’on peut croiser un peu partout."),
+(7, "Une fois la porte franchie, les pièces vides s’enchaînent, certaines plongées dans l’obscurité à cause de fenêtres murées. On peut tout de même retrouver un imposant escalier en bois massif, épargné par l’incendie. Aux étages, c’est la même ambiance : des pièces vides."),
+(8, "Place maintenant à la partie principale du manoir : son escalier en colimaçon. Il traverse tous les étages et mène jusqu’à la terrasse sur le toit. Malheureusement, il est recouvert de nombreux tags.");
 
 insert into STRUCTURE (idL, nom_categorie, ordre_structure, types, ref) VALUES
 (3, 'chateaux', 1, 'paragraphe', 6),
@@ -176,7 +137,7 @@ insert into STRUCTURE (idL, nom_categorie, ordre_structure, types, ref) VALUES
 -- passée, malgré son état de délabrement avancé. Au fil du temps, il connut plusieurs vies : il devint 
 -- d’abord un parc d’artillerie pour l’armée française, puis servit de prison durant les deux guerres 
 -- mondiales. Par la suite, il fut transformé en centre administratif pour l’ancienne prison voisine 
--- aujourd’hui entièrement démolie.</br>
+-- aujourd’hui entièrement démolie.\n
 -- Abandonné depuis 2004, le château fut ravagé par un violent incendie en 2010, qui détruisit la toiture 
 -- ainsi que les planchers. Aujourd’hui, l’édifice est complètement ouvert et recouvert de tags. Malgré 
 -- tout, certaines pièces conservent un charme photogénique grâce aux sculptures et aux ornements qui 
