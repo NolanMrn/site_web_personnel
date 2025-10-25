@@ -6,7 +6,6 @@ $nbSections = $_POST['nbSections'] ?? 0;
 $nom = $_POST['nom'] ?? '';
 $slug = $_POST['slug'] ?? '';
 $num_banniere = $_POST['num_banniere'] ?? '';
-$histoire = $_POST['histoire'] ?? '';
 
 if ($_POST['nouveau_pays'] === "") {
     $pays = $_POST['pays'] ?? '';

@@ -1,13 +1,19 @@
-function initSection(div) {
+const sections = new Map();
+
+function initSection(div, id) {
     const btnOrientation = div.querySelectorAll('.btn-orientation');
     const inputOrdre = div.querySelector('.ordre');
     const btnRetour = div.querySelector('.btn-retour');
     let ordre = [];
+    sections.set(id, ordre);
 
     btnOrientation.forEach(btn => {
         btn.addEventListener('click', () => {
+            const nbPhotosInput = document.getElementById('nbPhotos');
+            let nbPhotos = parseInt(nbPhotosInput.value, 10)
             const typeOrientation = btn.dataset.orientation;
             ordre.push(typeOrientation);
+            sections.set(id, ordre);
             let res = '';
             for (let i = 0 ; i < ordre.length ; i++) {
                 res += (i + 1) + '.' + ordre[i];
@@ -16,11 +22,16 @@ function initSection(div) {
                 }
             }
             inputOrdre.value = res;
+            nbPhotos++;
+            nbPhotosInput.value = nbPhotos;
         });
     });
 
     btnRetour.addEventListener('click', () => {
+        const nbPhotosInput = document.getElementById('nbPhotos');
+        let nbPhotos = parseInt(nbPhotosInput.value, 10)
         ordre.pop();
+        sections.set(id, ordre);
         let res = '';
         for (let i = 0 ; i < ordre.length ; i++) {
             res += (i + 1) + '.' + ordre[i];
@@ -29,6 +40,10 @@ function initSection(div) {
             }
         }
         inputOrdre.value = res;
+        if (nbPhotos > 0) {
+            nbPhotos--;
+            nbPhotosInput.value = nbPhotos;
+        }
     });
 }
 
@@ -65,7 +80,7 @@ btnAjouterSection.addEventListener('click', () => {
     `;
     const form = page.querySelector('form');
     form.insertBefore(nouvelleSection, btnAjouterSection.closest('.form-group'));
-    initSection(nouvelleSection);
+    initSection(nouvelleSection, `ordre${nbSection}`);
 });
 
 
@@ -80,37 +95,39 @@ btnSupprimerSection.addEventListener('click', () => {
         }
     nbSection--;
     page.dataset.nbsections = nbSection;
-    nbSectionsInput.value = nbSection;
+    const nbPhotosInput = document.getElementById('nbPhotos');
+    let nbPhotos = parseInt(nbPhotosInput.value, 10)
+    const derniereClef = Array.from(sections.keys()).pop();
+    const nbPhotoDerniereSection = sections.get(derniereClef).length;
+    const nbPhotoApresSupp = nbPhotos - nbPhotoDerniereSection;
+    nbPhotosInput.value = nbPhotoApresSupp;
+    sections.delete(derniereClef);
     }
 });
 
 
+function nouveauPaysCategorie(select, container, idString) {
+    select.addEventListener('change', function() {
+        if (this.value === 'autre') {
+            container.style.display = 'contents';
+            document.getElementById(idString).required = true;
+        } else {
+            container.style.display = 'none';
+            document.getElementById(idString).required = false;
+            document.getElementById(idString).value = "";
+        }
+    });
+}
 const selectCategorie = document.getElementById('categorie');
 const nouvelleCategorieContainer = document.getElementById('nouvelle_categorie_container');
+const idStringCategorie = 'nouvelle_categorie';
+nouveauPaysCategorie(selectCategorie, nouvelleCategorieContainer, idStringCategorie);
 
-selectCategorie.addEventListener('change', function() {
-    if (this.value === 'autre') {
-        nouvelleCategorieContainer.style.display = 'contents';
-        document.getElementById('nouvelle_categorie').required = true;
-    } else {
-        nouvelleCategorieContainer.style.display = 'none';
-        document.getElementById('nouvelle_categorie').required = false;
-        document.getElementById('nouvelle_categorie').value = "";
-    }
-});
 const selectPays = document.getElementById('pays');
 const nouveauPaysContainer = document.getElementById('nouveau_pays_container');
+const idStringPays = 'nouveau_pays';
+nouveauPaysCategorie(selectPays, nouveauPaysContainer, idStringPays);
 
-selectPays.addEventListener('change', function() {
-    if (this.value === 'autre') {
-        nouveauPaysContainer.style.display = 'contents';
-        document.getElementById('nouveau_pays').required = true;
-    } else {
-        nouveauPaysContainer.style.display = 'none';
-        document.getElementById('nouveau_pays').required = false;
-        document.getElementById('nouveau_pays').value = "";
-    }
-});
 
 
 function validerFormulaire() {
@@ -120,29 +137,22 @@ function validerFormulaire() {
         return false;
     }
     const mois = parseInt(dateExplo.slice(5, 7), 10);
-    console.log(mois);
     if (mois < 1 || mois > 12) {
         alert("Mois invalide, utilisez les chiffres de 01 à 12");
         return false;
     }
     const numBanniere = parseInt(document.getElementById('num_banniere').value);
+    let nbPhotoTotal = 0
+    sections.forEach(valeurs => {
+        nbPhotoTotal += valeurs.length;
+    });
     if (numBanniere <= 0) {
-        alert("Numéro de bannière invalide, utilisé un numéro positif")
+        alert("Numéro de photo de bannière invalide, utilisé un numéro positif")
+        return false;
+    }
+    if (numBanniere > nbPhotoTotal) {
+        alert("Numéro de photo de bannière invalide, utilisé un numéro d'image qui existe (inférieur à " + (nbPhotoTotal + 1) + (")"))
         return false;
     }
     return true;
 }
-
-
-
-const nbPhotosInput = document.getElementById('nbPhotos');
-let nbPhotos = parseInt(nbPhotosInput.value, 10)
-const btnAjouterPhoto = document.querySelectorAll('.btn-orientation');
-console.log(nbPhotosInput.value);
-
-btnAjouterPhoto.forEach(btn => {
-    btn.addEventListener('click', () => {
-        nbPhotos++;
-        nbPhotosInput.value = nbPhotos;
-    })
-});
