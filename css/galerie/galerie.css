@@ -58,11 +58,11 @@ main {
     width: 10em;
     border-radius: 10px;
     transition: 0.3s;
+    text-align: left;
 }
 
 .filtre article button:hover {
     background-color: #222222;
-    transform: scale(1.05);
 }
 
 .explos_photos {
@@ -204,4 +204,24 @@ main {
 .explos_photos>article a div:hover {
     background: rgba(0, 0, 0, 0.4);
     transform: scale(1.05);
+}
+
+.btn_filtre.active-click {
+    transform: scale(0.9);
+    transition: transform 0.2s ease;
+}
+
+
+/* Animation apparition / disparition */
+.unLieu {
+    opacity: 1;
+    transform: scale(1);
+    transition: opacity 0.3s ease, transform 0.3s ease;
+    will-change: transform, opacity;
+    backface-visibility: hidden;
+}
+
+.unLieu.hidden {
+    opacity: 0;
+    transform: scale(0.95);
 }

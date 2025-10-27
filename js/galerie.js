@@ -30,42 +30,51 @@ function ajusterNbArticle() {
 const boutonsFiltre = document.querySelectorAll(".btn_filtre");
 boutonsFiltre.forEach(btn => {
     btn.addEventListener("click", () => {
+        btn.classList.add("active-click");
+        setTimeout(() => btn.classList.remove("active-click"), 300);
+
         const filtreChoisi = btn.id;
         const lstLieux = document.querySelectorAll(".unLieu");
-
         const parentArticle = btn.closest("article");
         let typeFiltre = parentArticle.dataset.filtre;
-
         if (filtresActifs[typeFiltre] === filtreChoisi) {
             filtresActifs[typeFiltre] = null;
         } else {
             filtresActifs[typeFiltre] = filtreChoisi;
         }
-        
-
-        
         lstLieux.forEach(lieu => {
-            const categorie = lieu.dataset.categorie;
-            const pays = lieu.dataset.pays;
-            const annee = lieu.dataset.annee;
-            let estVisible = true;
-            if (filtresActifs.categorie && filtresActifs.categorie !== categorie) {
-                estVisible = false;
-            }
-            if (filtresActifs.pays && filtresActifs.pays !== pays) {
-                estVisible = false;
-            }
-            if (filtresActifs.annee && filtresActifs.annee !== annee) {
-                estVisible = false;
-            }
-            let affichage;
-            if (estVisible) {
-                affichage = "block";
-            } else {
-                affichage = "none";
-            }
-            lieu.style.display = affichage;
+            lieu.classList.add("hidden");
         });
+        setTimeout(() => {
+            lstLieux.forEach(lieu => {
+                const categorie = lieu.dataset.categorie;
+                const pays = lieu.dataset.pays;
+                const annee = lieu.dataset.annee;
+                let estVisible = true;
+                if (filtresActifs.categorie && filtresActifs.categorie !== categorie) {
+                    estVisible = false;
+                }
+                if (filtresActifs.pays && filtresActifs.pays !== pays) {
+                    estVisible = false;
+                }
+                if (filtresActifs.annee && filtresActifs.annee !== annee) {
+                    estVisible = false;
+                }
+                    if (estVisible) {
+                    lieu.style.display = "block";
+                } else {  
+                    lieu.style.display = "none";
+                }
+            });
+            ajusterNbArticle();
+            setTimeout(() => {
+                lstLieux.forEach(lieu => {
+                    if (lieu.style.display === "block") {
+                            lieu.classList.remove("hidden");
+                    }
+                });
+            }, 50);
+        }, 300);
         boutonsFiltre.forEach(b => {
             let actif = false;
             for (const valeur of Object.values(filtresActifs)) {
@@ -80,7 +89,6 @@ boutonsFiltre.forEach(btn => {
                 b.style.backgroundColor = "";
             }
         });
-        ajusterNbArticle();
     })
 });
 
