@@ -27,6 +27,10 @@ $AllAnnees = getAllAnnees($conn);
         <div class="container">
             <section class="block">
                 <nav class="filtre">
+                    <form class="recherche">
+                        <input id="recherche_case" type="text" name="text" class="recherche_case" placeholder="Rechercher un lieu précis...">
+                        <button id="btn_recherche" type="submit" class="btn_recherche"></button>
+                    </form>
                     <article data-filtre="categorie">
                         <p>Filtré par catégorie :</p>
                         <ul>
@@ -68,6 +72,7 @@ $AllAnnees = getAllAnnees($conn);
                     </article>
                 </nav>
                 <section class="explos_photos">
+                    <h1 class="resultat_recherche"></h1>
                     <?php
                     while ($lieu = $lieux->fetch_assoc()) {
                         $categorie = htmlspecialchars($lieu["nom_categorie"]);
@@ -106,15 +111,6 @@ $AllAnnees = getAllAnnees($conn);
                             </div>
                         </article>
                         <?php
-                    }
-                    $reste = $nbLieux % 3;
-                    if ($reste == 0) {
-                        $nbAjouter = 0;
-                    } else {
-                        $nbAjouter = 3 - $reste;
-                    }
-                    for ($i = 0; $i < $nbAjouter; $i++) {
-                        printf("<article style=\"background-color: #222222;\"></article>");
                     }
                     ?>
                 </section>

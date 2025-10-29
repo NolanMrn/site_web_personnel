@@ -16,13 +16,22 @@ header {
     z-index: 10;
 }
 
+
+header img {
+    width: 5em;
+    height: auto;
+    margin-left: 5em;
+}
+
 header h1 {
     flex-basis: 30%;
-    text-align: center;
+    text-align: left;
+    flex-grow: 1;
+    margin-left: 1em;
 }
 
 header nav {
-    flex-basis: 50%;
+    flex-basis: 40%;
 }
 
 header .menu {
@@ -31,10 +40,10 @@ header .menu {
     align-items: center;
     justify-content: flex-end;
     padding-right: 2em;
+    gap: 8em;
 }
 
 header .menu>li {
-    flex-grow: 1;
     text-align: right;
     position: relative;
     cursor: pointer;

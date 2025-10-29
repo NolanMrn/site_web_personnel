@@ -1,4 +1,5 @@
 <header>
+    <img src="/site_web/img/accueil/photo_profil.png" alt="photo profil">
     <h1>Exploratio_nln</h1>
     <nav>
         <ul class="menu">
