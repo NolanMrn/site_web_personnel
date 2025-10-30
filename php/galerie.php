@@ -28,8 +28,9 @@ $AllAnnees = getAllAnnees($conn);
             <section class="block">
                 <nav class="filtre">
                     <form class="recherche">
-                        <input id="recherche_case" type="text" name="text" class="recherche_case" placeholder="Rechercher un lieu précis...">
-                        <button id="btn_recherche" type="submit" class="btn_recherche"></button>
+                        <input id="recherche_case" type="text" class="recherche_case" placeholder="Rechercher un lieu précis...">
+                        <button id="btn_recherche" type="button" class="btn_recherche"></button>
+                        <button id="btn_croix" type="button" class="btn_croix"></button>
                     </form>
                     <article data-filtre="categorie">
                         <p>Filtré par catégorie :</p>

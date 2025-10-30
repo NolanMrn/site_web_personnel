@@ -10,17 +10,16 @@ function ajusterNbArticle() {
     ancienArticleVide.forEach(p => {
         p.remove();
     });
+
     const tousLesLieux = conteneur.querySelectorAll(".unLieu");
     const tableauLieux = Array.from(tousLesLieux);
-    const lieuxVisibles = tableauLieux.filter(lieu => lieu.style.display !== "none");
+    const lieuxVisibles = tableauLieux.filter(lieu => window.getComputedStyle(lieu).display !== "none");
     const visibles = lieuxVisibles.length;
-    console.log("visibles   " + visibles);
     const reste = visibles % 3;
     let nbAjouter = 0;
     if (reste !== 0) {
         nbAjouter = 3 - reste;
     }
-    console.log("nbAjouter   " + nbAjouter)
     for (let i = 0; i < nbAjouter; i++) {
         const article = document.createElement("article");
         article.classList.add("articleVide");
@@ -34,8 +33,6 @@ ajusterNbArticle();
 const boutonsFiltre = document.querySelectorAll(".btn_filtre");
 boutonsFiltre.forEach(btn => {
     btn.addEventListener("click", () => {
-        const conteneurTexte = document.querySelector(".resultat_recherche");
-        conteneurTexte.textContent = "";
 
         btn.classList.add("active-click");
         setTimeout(() => btn.classList.remove("active-click"), 300);
@@ -49,10 +46,16 @@ boutonsFiltre.forEach(btn => {
         } else {
             filtresActifs[typeFiltre] = filtreChoisi;
         }
+
         lstLieux.forEach(lieu => {
             lieu.classList.add("hidden");
         });
+
         setTimeout(() => {
+            const conteneurTexte = document.querySelector(".resultat_recherche");
+            conteneurTexte.textContent = "";
+            document.getElementById("recherche_case").value = "";
+            
             lstLieux.forEach(lieu => {
                 const categorie = lieu.dataset.categorie;
                 const pays = lieu.dataset.pays;
@@ -103,34 +106,85 @@ boutonsFiltre.forEach(btn => {
 function effectuerRecherche() {
     let valRecherche = document.getElementById("recherche_case").value.toLowerCase().normalize("NFD").replace(/[\u0300-\u036f]/g, "");
     const lstLieux = document.querySelectorAll(".unLieu");
-    const conteneurTexte = document.querySelector(".resultat_recherche");
-    if (valRecherche.trim() !== "") {
-        conteneurTexte.textContent = `Résultats pour "${valRecherche}"`;
-    } else {
-        conteneurTexte.textContent = "";
-    }
+
     boutonsFiltre.forEach(btn => {
         btn.style.backgroundColor = "";
     });
+    filtresActifs.categorie = null;
+    filtresActifs.pays = null;
+    filtresActifs.annee = null;
+
     lstLieux.forEach(lieu => {
-        const nomLieu = lieu.querySelector("h2").textContent.toLowerCase().normalize("NFD").replace(/[\u0300-\u036f]/g, "");
-        let affichage;
-        if (nomLieu.includes(valRecherche)) {
-            affichage = "block";
-            lieu.classList.remove("hidden");
-        } else {
-            affichage = "none";
-        }
-        lieu.style.display = affichage;
-    })
-    ajusterNbArticle();
+        lieu.classList.add("hidden");
+    });
+
+    setTimeout(() => {
+        let compteur = 0;
+        const total = lstLieux.length;
+
+        lstLieux.forEach(lieu => {
+            const nomLieu = lieu.querySelector("h2").textContent.toLowerCase().normalize("NFD").replace(/[\u0300-\u036f]/g, "");
+            setTimeout(() => {
+                if (nomLieu.includes(valRecherche)) {
+                    lieu.style.display = "block";
+                    lieu.classList.remove("hidden");
+                } else {
+                    lieu.style.display = "none";
+                }
+                
+                compteur++;
+                if (compteur === total) {
+                    const conteneurTexte = document.querySelector(".resultat_recherche");
+                    if (valRecherche.trim() !== "") {
+                        conteneurTexte.textContent = `Résultats pour "${valRecherche}"`;
+                    } else {
+                        conteneurTexte.textContent = "";
+                    }
+                    ajusterNbArticle();
+                }
+            }, 50);
+        });
+    }, 300);
+}
+
+function AnnulerRecherche() {
+    const btnCroix = document.querySelector(".btn_croix");
+    btnCroix.classList.add("active-click");
+    setTimeout(() => btnCroix.classList.remove("active-click"), 300);
+
+    boutonsFiltre.forEach(btn => {
+        btn.style.backgroundColor = "";
+    });
+    filtresActifs.categorie = null;
+    filtresActifs.pays = null;
+    filtresActifs.annee = null;
+
+    const lstLieux = document.querySelectorAll(".unLieu");
+    lstLieux.forEach(lieu => {
+        lieu.classList.add("hidden");
+    });
+
+    setTimeout(() => {
+        const conteneurTexte = document.querySelector(".resultat_recherche");
+        conteneurTexte.textContent = "";
+        document.getElementById("recherche_case").value = "";
+
+        lstLieux.forEach(lieu => {
+            lieu.style.display = "block";
+        });
+        ajusterNbArticle();
+        setTimeout(() => {
+            lstLieux.forEach(lieu => {
+                lieu.classList.remove("hidden");
+            });
+        }, 50);
+    }, 300);
 }
 
 const btnRechercher = document.getElementById("btn_recherche");
-btnRechercher.addEventListener("click", () => {
+btnRechercher.addEventListener("click", (e) => {
     e.preventDefault();
     effectuerRecherche();
-    document.getElementById("recherche_case").value = "";
 });
 
 const inputRecherche = document.getElementById("recherche_case");
@@ -138,6 +192,11 @@ inputRecherche.addEventListener("keypress", (e) => {
     if (e.key === "Enter") {
         e.preventDefault();
         effectuerRecherche();
-        document.getElementById("recherche_case").value = "";
     }
+});
+
+const btnAnnuler = document.getElementById("btn_croix");
+btnAnnuler.addEventListener("click", (e) => {
+    e.preventDefault();
+    AnnulerRecherche();
 });
