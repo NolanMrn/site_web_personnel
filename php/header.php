@@ -9,10 +9,4 @@
             <li><a href="">Contact</a></li>
         </ul>
     </nav>
-    <div class="search">
-        <form class="search">
-            <input type="text" name="text" class="search2" placeholder=" Rechercher...">
-            <input type="submit" name="submit" class="submit" value="search">
-        </form>
-    </div>
 </header>

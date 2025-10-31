@@ -1,4 +1,18 @@
-/*positionnement*/
+:root {
+  --couleur-boutton: #B85F49;
+
+  --couleur-fond-principal: #222222;
+  --couleur-texte-principal: #F0F0E0;
+  --couleur-blanc: #FFFFFF;
+  --couleur-noir: #000000;
+
+  --border-radius: 0.7em;
+  --maw-width-container: 83vw;
+}
+
+body {
+    background-color: var(--couleur-fond-principal);
+}
 
 .photo_acc {
     position: relative;
@@ -7,33 +21,53 @@
     display: flex;
     justify-content: center;
     align-items: center;
+    background: url("/site_web/img/accueil/grande_photo_accueil.jpeg") center/cover no-repeat;
+    color: var(--couleur-texte-principal);
+    box-shadow: 0px 0px 30px 2px black;
 }
 
 .photo_acc .overlay {
     position: absolute;
     inset: 0;
     z-index: 1;
+    background: rgba(0, 0, 0, 0.72);
 }
 
 .photo_acc article {
     text-align: center;
 }
 
-.photo_acc article div {
-    display: inline-block;
-    width: auto;
-    padding: 0 1.7em 0.2em;
-    margin-top: 0.5em;
-}
-
 .photo_acc h1 {
     position: relative;
     z-index: 2;
+    font-size: 9.5em;
+    font-weight: bold;
+    font-family: 'Anton', sans-serif;
 }
 
 .photo_acc a {
     position: relative;
     z-index: 2;
+    text-decoration: none;
+    font-size: 3em;
+    font-family: 'Antonio', sans-serif;
+    color: var(--couleur-texte-principal);
+}
+
+.photo_acc article div {
+    display: inline-block;
+    width: auto;
+    padding: 0.1em 2em 0.3em 2em;
+    margin-top: 0.5em;
+    border-radius: var(--border-radius);
+    border: 0.04em solid var(--couleur-noir);
+    background-color: var(--couleur-boutton);
+    box-shadow: 5px 5px 20px 2px var(--couleur-noir);
+    transition: 0.3s;
+}
+
+.photo_acc article div:hover {
+    transform: scale(1.05);
 }
 
 .parent {
@@ -41,13 +75,41 @@
     padding: 0;
     display: flex;
     justify-content: center;
+    background-color: var(--couleur-fond-principal);
 }
 
 .container {
-    max-width: 130em;
-    width: 100%;
+    max-width: var(--maw-width-container);
     box-sizing: border-box;
+    background-color: #222222;
+    background-color: var(--couleur-fond-principal);
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 .explos_recentes {
     margin-bottom: 4em;
@@ -137,51 +199,7 @@
 
 /*style*/
 
-body {
-    background-color: #222222;
-}
 
-.photo_acc {
-    background: url("/site_web/img/accueil/grande_photo_accueil.jpeg") center/cover no-repeat;
-    color: white;
-    box-shadow: 0px 0px 30px 2px black;
-}
-
-.photo_acc .overlay {
-    background: rgba(0, 0, 0, 0.72);
-}
-
-.photo_acc h1 {
-    font-size: 8em;
-    font-weight: bold;
-    font-family: 'Anton', sans-serif;
-}
-
-.photo_acc a {
-    text-decoration: none;
-    color: white;
-    font-size: 4em;
-    font-family: 'Antonio', sans-serif;
-}
-
-.photo_acc article div:hover {
-    background: rgba(0, 0, 0, 0.3);
-    transform: scale(1.05);
-}
-
-.photo_acc article div {
-    border-radius: 2em;
-    border: 0.09em solid white;
-    transition: 0.3s;
-}
-
-.parent {
-    background-color: #222222;
-}
-
-.container {
-    background-color: #222222;
-}
 
 .explos_recentes h1 {
     color: white;

@@ -20,7 +20,7 @@ header {
 header img {
     width: 5em;
     height: auto;
-    margin-left: 5em;
+    margin-left: 16.5em;
 }
 
 header h1 {
@@ -32,6 +32,7 @@ header h1 {
 
 header nav {
     flex-basis: 40%;
+    margin-right: 16.5em;
 }
 
 header .menu {
@@ -40,7 +41,7 @@ header .menu {
     align-items: center;
     justify-content: flex-end;
     padding-right: 2em;
-    gap: 8em;
+    gap: 13em;
 }
 
 header .menu>li {
@@ -53,19 +54,6 @@ header .menu ul {
     list-style: none;
 }
 
-header .search {
-    flex-basis: 20%;
-    text-align: center;
-}
-
-header .search2 {
-    padding: 0.65em 1.9em 0.65em 0.65em;
-}
-
-header .submit {
-    padding: 0.65em;
-}
-
 /*style*/
 
 header {
@@ -74,7 +62,7 @@ header {
 }
 
 header h1 {
-    color: white;
+    color: #F0F0E0;
     font-weight: bold;
     font-size: 50px;
     font-family: 'Anton', sans-serif;
@@ -86,7 +74,7 @@ header .menu {
 
 header li a {
     text-decoration: none;
-    color: white;
+    color: #F0F0E0;
     font-size: 23px;
     font-family: 'Antonio', sans-serif;
 }
@@ -97,13 +85,4 @@ nav>ul>li>a {
 
 nav>ul>li>a:hover {
     color: #3B3B3B;
-}
-
-header .search2 {
-    border-radius: 30px;
-    font-style: italic;
-}
-
-header .submit {
-    border-radius: 30px;
 }
