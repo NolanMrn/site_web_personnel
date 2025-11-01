@@ -94,7 +94,7 @@ boutonsFiltre.forEach(btn => {
                 }
             }
             if (actif) {
-                b.style.backgroundColor = "#222222";
+                b.style.backgroundColor = "#B85F49";
             } else {
                 b.style.backgroundColor = "";
             }

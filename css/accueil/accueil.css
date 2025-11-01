@@ -6,7 +6,7 @@
   --couleur-noir: #000000;
 
   --border-radius-bouton: 0.7em;
-  --maw-width-container: 83vw;
+  --maw-width-container: 130em;
 }
 
 * {
@@ -92,7 +92,7 @@ main {
 }
 
 .container {
-    max-width: 130em;
+    max-width: var(--maw-width-container);
     width: 100%;    
     box-sizing: border-box;
     background-color: var(--couleur-fond-principal);
@@ -116,7 +116,7 @@ main {
 .def_site h1,
 .explos_recentes h1,
 .reseaux h1 {
-    font-size: 3.7em;
+    font-size: 3em;
     font-family: 'Anton', sans-serif;
     color: var(--couleur-texte-principal);
     margin-bottom: 0.7em;
@@ -124,7 +124,7 @@ main {
 
 .def_urbex p,
 .def_site p {
-    font-size: 1.7em;
+    font-size: 1.4em;
     color: var(--couleur-texte-principal);
     font-weight: 100;
     margin-top: 0.6em;
@@ -240,5 +240,5 @@ main {
 .reseaux a {
     text-decoration: none;
     color: var(--couleur-texte-principal);
-    font-size: 2.5em;
+    font-size: 2em;
 }

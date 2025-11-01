@@ -1,4 +1,14 @@
-/*positionnement*/
+:root {
+  --couleur-boutton: #B85F49;
+  --couleur-fond-principal: #222222;
+  --couleur-texte-principal: #F0F0E0;
+  --couleur-blanc: #FFFFFF;
+  --couleur-noir: #000000;
+
+  --border-radius-bouton: 0.7em;
+  --maw-width-container: 130em;
+}
+
 * {
     margin: 0;
     padding: 0;
@@ -18,11 +28,13 @@ main {
     display: flex;
     justify-content: center;
     flex: 1;
+    background-color: #222222;
 }
 
 .container {
-    max-width: 145em;
+    max-width: var(--maw-width-container);
     width: 100%;
+    background-color: #222222;
     box-sizing: border-box;
 }
 
@@ -31,47 +43,6 @@ main {
     flex-direction: row;
     align-items: flex-start;
     margin-top: 15em;
-}
-
-.filtre .recherche {
-    display: flex;
-    align-items: center;
-    margin-bottom: 0.4em;
-}
-
-.filtre .recherche_case {
-    width: 15em;
-    padding: 0.5em;
-    border-radius: 10px 0 0 10px;
-    font-family: 'Antonio', sans-serif;
-    border: none;
-}
-
-.filtre .btn_recherche {
-    padding: 0.5em;
-    border-radius: 0 10px 10px 0;
-    width: 2.3em;
-    height: 2.3em;
-    background-image: url('/site_web/img/accueil/loupe.webp');
-    background-size: 60%;
-    background-repeat: no-repeat;
-    background-position: center;
-    border: none;
-    cursor: pointer;
-}
-
-.filtre .btn_croix {
-    padding: 0.5em;
-    border-radius: 10px;
-    width: 2.3em;
-    height: 2.3em;
-    background-image: url('/site_web/img/accueil/annuler.png');
-    background-size: 60%;
-    background-repeat: no-repeat;
-    background-position: center;
-    border: none;
-    cursor: pointer;
-    margin-left: 0.6em;
 }
 
 .filtre {
@@ -84,16 +55,80 @@ main {
     margin-top: 1em;
 }
 
+.filtre .haut {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+    width: 100%;
+}
+
+.filtre p {
+    color: var(--couleur-texte-principal);
+    font-family: 'Anton', sans-serif;
+    font-size: 1.2em;
+    display: inline-block;
+}
+
+.filtre .btn_croix {
+    border-radius: 10px;
+    width: 2.3em;
+    height: 2.3em;
+    background-color: var(--couleur-boutton);
+    background-image: url('/site_web/img/accueil/annuler.png');
+    background-size: 60%;
+    background-repeat: no-repeat;
+    background-position: center;
+    border: none;
+    cursor: pointer;
+    margin-left: auto;
+}
+
+.filtre .btn_croix.active-click {
+    transform: scale(0.9);
+    transition: transform 0.2s ease;
+}
+
+.filtre .recherche {
+    display: flex;
+    align-items: center;
+    margin: 2em 0;
+    border-bottom: 0.15em solid var(--couleur-boutton);
+}
+
+.filtre .btn_recherche {
+    width: 2.3em;
+    height: 2.3em;
+    background-image: url('/site_web/img/accueil/loupe.png');
+    background-size: 60%;
+    background-color: transparent;
+    background-repeat: no-repeat;
+    background-position: center;
+    border: none;
+    cursor: pointer;
+}
+
+.filtre .recherche_case {
+    margin-left: 1em;
+    width: 100%;
+    background-color: transparent;
+    font-family: 'Antonio', sans-serif;
+    border: none;
+    color: var(--couleur-texte-principal);
+}
+
+.filtre .orange {
+    color: var(--couleur-boutton);
+}
+
 .filtre article{
     display: flex;
     flex-direction: column;
+    margin-bottom: 1em;
 }
 
 .filtre article p {
-    color: white;
-    font-family: 'Antonio', sans-serif;
-    font-size: 1.2em;
-    margin: 0.8em 0;
+    margin-bottom: 0.7em;
 }
 
 .filtre li {
@@ -101,7 +136,7 @@ main {
 }
 
 .filtre article button {
-    color: white;
+    color: var(--couleur-texte-principal);
     text-decoration: none;
     margin: 0.2em 2em;
     background: none;
@@ -115,32 +150,32 @@ main {
 }
 
 .filtre article button:hover {
-    background-color: #222222;
+    background-color: var(--couleur-boutton);
+}
+
+.btn_filtre.active-click {
+    transform: scale(0.9);
+    transition: transform 0.2s ease;
 }
 
 .explos_photos {
+    padding-top: 0;
     display: flex;
     flex-wrap: wrap;
     flex-basis: 70%;
     flex-grow: 1;
     margin-left: 5em;
-    height: 55vh;
-    overflow-y: auto;
-    border: 0.125em solid black;
-    box-shadow: 0px 0px 15px 10px black;
-    border-radius: 20px 0 0 20px;
-    padding: 1em;
-    align-items: flex-start;
-    align-content: flex-start;
+    gap: 5em;
+    margin-bottom: 6em;
 }
 
 .explos_photos>article {
     flex-basis: 25%;
     flex-grow: 1;
-    margin: 2.7em;
     padding: 1em;
     position: relative;
     overflow: hidden;
+    background-color: var(--couleur-blanc);
 }
 
 .explos_photos>article>img {
@@ -160,17 +195,28 @@ main {
     flex-direction: column;
     gap: 0.5em;
     margin-top: 1.7em;
+    color: var(--couleur-texte-principal);
 }
 
 .trait-blanc {
     flex-grow: 1;
     border: none;
     height: 2px;
+    border: none;
+    height: 2px;
+    background-color: var(--couleur-texte-principal);
 }
 
 .explos_photos>article article {
     width: 25em;
     padding-top: 2em;
+    background: rgba(0, 0, 0, 0.4);
+}
+
+.explos_photos>article article h2 {
+    font-family: 'Antonio', sans-serif;
+    font-size: 1.7em;
+    margin: 0 0.8em 0 0.8em;
 }
 
 .explos_photos>article article div {
@@ -190,74 +236,32 @@ main {
 
 .explos_photos>article article div p{
     margin-right: 0.4em;
-}
-
-.explos_photos>article a {
-    display: inline-block;
-    margin: 0 auto;
-}
-
-.explos_photos>article a div {
-    padding: 0.2em 1em 0.4em 1em;
-    margin-top: 1em;
-}
-
-/*styles*/
-
-main {
-    background-color: #222222;
-}
-
-.container {
-    background-color: #222222;
-}
-
-.explos_photos>article {
-    background-color: white;
-}
-
-.content {
-    color: white;
-}
-
-.trait-blanc {
-    border: none;
-    height: 2px;
-    background-color: white;
-}
-
-.explos_photos>article article {
-    background: rgba(0, 0, 0, 0.4);
-}
-
-.explos_photos>article article h2 {
-    font-family: 'Antonio', sans-serif;
-    font-size: 1.7em;
-    margin: 0 0.8em 0 0.8em;
-}
-
-.explos_photos>article article p {
-    color: white;
+    color: var(--couleur-texte-principal);
     font-family: 'Antonio', sans-serif;
     font-size: 1.2em;
 }
 
 .explos_photos>article a {
+    display: inline-block;
+    margin: 0 auto;
     text-decoration: none;
-    color: white;
+    color: var(--couleur-texte-principal);
     font-size: 1.4em;
     font-family: 'Antonio', sans-serif;
 }
 
 .explos_photos>article a div {
-    border-radius: 2em;
-    border: 0.09em solid white;
+    padding: 0.2em 1em 0.4em 1em;
+    margin-top: 1em;
     transition: 0.3s;
-    background: rgba(0, 0, 0, 0.07);
+    border-radius: var(--border-radius-bouton);
+    border: 0.04em solid var(--couleur-noir);
+    background-color: var(--couleur-boutton);
+    box-shadow: 5px 5px 20px 2px var(--couleur-noir);
+    will-change: transform;
 }
 
 .explos_photos>article a div:hover {
-    background: rgba(0, 0, 0, 0.4);
     transform: scale(1.05);
 }
 
@@ -281,17 +285,11 @@ main {
 }
 
 .explos_photos h1 {
-    color: white;
+    color: var(--couleur-texte-principal);
     flex-basis: 100%;
     margin: 0.5em 0 0 1.3em;
 }
 
-.btn_filtre.active-click {
-    transform: scale(0.9);
-    transition: transform 0.2s ease;
-}
-
-.btn_croix.active-click {
-    transform: scale(0.9);
-    transition: transform 0.2s ease;
+.resultat_recherche:empty {
+    display: none;
 }

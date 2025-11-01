@@ -91,6 +91,7 @@ footer {
     position: relative;
     z-index: 5;
     color: var(--couleur-texte-principal);
+    padding-top: 2em;
 }
 
 footer>section,
@@ -107,13 +108,13 @@ footer>section>article {
     text-align: center;
     display: flex;
     flex-direction: column;
-    align-items: center;
     gap: 0.5em;
 }
 
 footer h3 {
-    font-size: 2em;
+    font-size: 1.7em;
     margin-bottom: 0.3em;
+    color: var(--couleur-boutton);
 }
 
 footer ul {
@@ -126,7 +127,7 @@ footer ul {
 
 footer p,
 footer li {
-    font-size: 1.3em;
+    font-size: 1.1em;
 }
 
 footer img {
@@ -135,8 +136,8 @@ footer img {
 }
 
 footer .copyright {
-    margin: 3em 0;
-    margin-left: 17em;
+    margin: 2em 0 1em 0;
+    text-align: center;
 }
 
 footer a {

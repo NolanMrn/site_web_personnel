@@ -27,13 +27,16 @@ $AllAnnees = getAllAnnees($conn);
         <div class="container">
             <section class="block">
                 <nav class="filtre">
-                    <form class="recherche">
-                        <input id="recherche_case" type="text" class="recherche_case" placeholder="Rechercher un lieu précis...">
-                        <button id="btn_recherche" type="button" class="btn_recherche"></button>
+                    <section class="haut">
+                        <p>Filtres</p>
                         <button id="btn_croix" type="button" class="btn_croix"></button>
+                    </section>
+                    <form class="recherche">
+                        <button id="btn_recherche" type="button" class="btn_recherche"></button>
+                        <input id="recherche_case" type="text" class="recherche_case" placeholder="Rechercher un lieu précis...">
                     </form>
                     <article data-filtre="categorie">
-                        <p>Filtré par catégorie :</p>
+                        <p>Par <span class="orange">catégorie</span> :</p>
                         <ul>
                             <?php
                             while ($cat = $categories->fetch_assoc()) {
@@ -46,7 +49,7 @@ $AllAnnees = getAllAnnees($conn);
                         </ul>
                     </article>
                     <article  data-filtre="pays">
-                        <p>Filtré par pays :</p>
+                        <p>Par <span class="orange">pays</span> :</p>
                         <ul>
                             <?php
                             while ($p = $allPays->fetch_assoc()) {      
@@ -59,7 +62,7 @@ $AllAnnees = getAllAnnees($conn);
                         </ul>
                     </article>
                     <article  data-filtre="annee">
-                        <p>Filtré par années :</p>
+                        <p>Par <span class="orange">années</span> :</p>
                         <ul>
                             <?php
                             foreach ($AllAnnees as $a) {
