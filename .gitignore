@@ -1,3 +1,5 @@
 .htpasswd
-sql/*.sql
+sql/
 connexion_bd.php
+readme.md
+readme.pdf

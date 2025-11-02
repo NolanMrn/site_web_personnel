@@ -1,0 +1,125 @@
+:root {
+  --couleur-boutton: #B85F49;
+  --couleur-fond-principal: #222222;
+  --couleur-texte-principal: #F0F0E0;
+  --couleur-blanc: #FFFFFF;
+  --couleur-noir: #000000;
+
+  --border-radius-bouton: 0.7em;
+  --maw-width-container: 124em;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    background-color: var(--couleur-fond-principal);
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+}
+
+main {
+    margin: 0;
+    padding: 0;
+    display: flex;
+    justify-content: center;
+    flex: 1;
+    background-color: var(--couleur-fond-principal);
+}
+
+.container {
+    max-width: var(--maw-width-container);
+    width: 100%;
+    background-color: var(--couleur-fond-principal);
+    box-sizing: border-box;
+}
+
+.orange {
+    color: var(--couleur-boutton);
+}
+
+.contact {
+    display: flex;
+    flex-direction: row;
+    margin-top: 15em;
+}
+
+.description {
+    flex-basis: 45%;
+    flex-grow: 1;
+    margin-right: 5em;
+}
+
+.description h1 {
+    font-size: 3em;
+    font-family: 'Anton', sans-serif;
+    color: var(--couleur-texte-principal);
+    margin-bottom: 0.7em;
+}
+
+.description p {
+    font-size: 1.4em;
+    color: var(--couleur-texte-principal);
+    font-weight: 100;
+    margin-top: 2em;
+}
+
+.formulaire {
+    display: flex;
+    flex-direction: column;
+    flex-basis: 45%;
+    background-color: var(--couleur-noir);
+    box-shadow: 0px 0px 15px 15px var(--couleur-noir);
+}
+
+.formulaire article {
+    margin: 1.7em;
+}
+
+.formulaire input,
+.formulaire textarea,
+.formulaire button {
+    width: 100%;
+}
+
+.formulaire label {
+    font-size: 1.3em;
+    color: var(--couleur-boutton);
+    font-family: 'Antonio', sans-serif;
+}
+
+.formulaire input,
+.formulaire textarea {
+    font-size: 1em;
+    margin-top: 1em;
+    background-color: var(--couleur-texte-principal);
+    color: var(--couleur-noir);
+    border-radius: var(--border-radius-bouton);
+    padding: 1em;
+}
+
+textarea {
+    resize: none;
+}
+
+.formulaire button {
+    font-size: 1em;
+    background-color: var(--couleur-boutton);
+    color: var(--couleur-texte-principal);
+    border-radius: var(--border-radius-bouton);
+    padding: 1em;
+    font-family: 'Antonio', sans-serif;
+}
+
+.success {
+    color: #B85F49;
+    margin-bottom: 1em;
+}
+.error {
+    color: red;
+    margin-bottom: 1em;
+}

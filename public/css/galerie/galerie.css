@@ -6,7 +6,7 @@
   --couleur-noir: #000000;
 
   --border-radius-bouton: 0.7em;
-  --maw-width-container: 130em;
+  --maw-width-container: 124em;
 }
 
 * {
@@ -28,13 +28,13 @@ main {
     display: flex;
     justify-content: center;
     flex: 1;
-    background-color: #222222;
+    background-color: var(--couleur-fond-principal);
 }
 
 .container {
     max-width: var(--maw-width-container);
     width: 100%;
-    background-color: #222222;
+    background-color: var(--couleur-fond-principal);
     box-sizing: border-box;
 }
 
