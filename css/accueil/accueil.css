@@ -130,6 +130,27 @@ main {
     margin-top: 0.6em;
 }
 
+.voir_plus {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+    width: 100%;
+}
+
+.voir_plus a {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    text-decoration: none;
+}
+
+.voir_plus p {
+    color: var(--couleur-texte-principal);
+    font-size: 1.5em;
+    margin-right: 0.5em;
+}
+
 .explos_recentes_photos {
     display: flex;
     flex-wrap: wrap;
@@ -213,11 +234,11 @@ main {
     color: var(--couleur-texte-principal);
     font-size: 1.4em;
     font-family: 'Antonio', sans-serif;
+    margin-top: 1em;
 }
 
 .explos_recentes_photos>article a div {
     padding: 0.2em 1em 0.4em 1em;
-    margin-top: 1em;
     transition: 0.3s;
     border-radius: var(--border-radius-bouton);
     border: 0.04em solid var(--couleur-noir);

@@ -56,13 +56,20 @@ $nbLieux = $troisDerniersLieux->num_rows;
                             ou leur tranquillité.</p>
                     </section>
                     <section class="explos_recentes">
-                        <?php
-                        if ($nbLieux == 0) {
-                            printf("<h1>Aucune exploration récente</h1>");
-                        } else {
-                            printf("<h1>Mes dernières <span class='orange'>explorations</span></h1>");
-                        }
-                        ?>
+                        <article class="voir_plus">
+                            <?php
+                            if ($nbLieux == 0) {
+                                printf("<h1>Aucune exploration récente</h1>");
+                            } else {
+                                printf("<h1>Mes dernières <span class='orange'>explorations</span></h1>");
+                                
+                            }
+                            ?>
+                            <a href="/site_web/php/galerie.php">
+                                <p>Voir Plus</p>
+                                <img src="/site_web/img/accueil/fleche.png" alt="fleche">
+                            </a>
+                        </article>
                         <section class="explos_recentes_photos">
                             <?php
                             while ($lieu = $troisDerniersLieux->fetch_assoc()) {
