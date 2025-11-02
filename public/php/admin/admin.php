@@ -1,6 +1,6 @@
 <?php
-require_once 'connexion_bd.php';
-require_once 'fonctions.php';
+require_once __DIR__ . '/../connexion_bd.php';
+require_once __DIR__ . '/../fonctions.php';
 
 $categories = getAllCategories($conn);
 $pays = getAllPays($conn);
@@ -12,15 +12,15 @@ $nbPhotos = 0;
 <html>
 <head>
     <meta charset="utf-8">
-    <link rel="stylesheet" type="text/css" href="/site_web/css/admin/admin.css">
-    <link rel="stylesheet" type="text/css" href="/site_web/css/header/header.css">
+    <link rel="stylesheet" type="text/css" href="/site_web/public/css/admin/admin.css">
+    <link rel="stylesheet" type="text/css" href="/site_web/public/css/header/header.css">
     <title>Exploratio_nln</title>
-    <link rel="icon" type="image/PNG" href="/site_web/img/accueil/photo_profil.png">
+    <link rel="icon" type="image/PNG" href="/site_web/public/img/accueil/photo_profil.png">
     <link href="https://fonts.googleapis.com/css2?family=Antonio&display=swap" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Anton&display=swap" rel="stylesheet">
 </head>
 <body>
-    <?php include 'header.php'; ?>
+    <?php include '../header.php'; ?>
     <main>
         <div class="container" data-nbSections = "<?php echo $nbSections ?>">
             <h1>Ajouter un lieu</h1>
@@ -98,11 +98,11 @@ $nbPhotos = 0;
                     <label></label>
                     <button type="submit" class="btn-enregistrer">Enregistrer</button>
                 </div>
-                <script src="/site_web/js/admin.js">
+                <script src="/site_web/public/js/admin.js">
                 </script>
             </form>
         </div>
     </main>
-    <?php include 'footer.php'; ?>
+    <?php include '../footer.php'; ?>
 </body>
 </html>

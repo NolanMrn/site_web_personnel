@@ -30,10 +30,10 @@ $histoireLieux = getHistoireLieux($conn, $lieu["idL"], $lieu["nom_categorie"]);
 <html>
 <head>
     <meta charset="utf-8">
-    <link rel="stylesheet" type="text/css" href="/site_web/css/individuel/individuel.css">
-    <link rel="stylesheet" type="text/css" href="/site_web/css/header/header.css">
+    <link rel="stylesheet" type="text/css" href="/site_web/public/css/individuel/individuel.css">
+    <link rel="stylesheet" type="text/css" href="/site_web/public/css/header/header.css">
     <title>Exploratio_nln</title>
-    <link rel="icon" type="image/PNG" href="/site_web/img/accueil/photo_profil.png">
+    <link rel="icon" type="image/PNG" href="/site_web/public/img/accueil/photo_profil.png">
     <link href="https://fonts.googleapis.com/css2?family=Antonio&display=swap" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Anton&display=swap" rel="stylesheet">
 </head>
@@ -46,7 +46,7 @@ $histoireLieux = getHistoireLieux($conn, $lieu["idL"], $lieu["nom_categorie"]);
                     <?php
                     printf('<h1>%s</h1>', $titreFinal);
                     printf(
-                        '<img src="/site_web/img/accueil/drapeau_%s.png" alt="drapeau %s">',
+                        '<img src="/site_web/public/img/accueil/drapeau_%s.png" alt="drapeau %s">',
                         htmlspecialchars($pays),
                         htmlspecialchars($pays)
                     );
@@ -67,7 +67,7 @@ $histoireLieux = getHistoireLieux($conn, $lieu["idL"], $lieu["nom_categorie"]);
                         foreach ($images as $img) {
                             $cheminPhysique = $_SERVER['DOCUMENT_ROOT'] . $img['chemin'];
                             if (!file_exists($cheminPhysique)) {
-                                $cheminImg = "/site_web/img/accueil/image_defaut.png";
+                                $cheminImg = "/site_web/public/img/accueil/image_defaut.png";
                             } else {
                                 $cheminImg = $img['chemin'];
                             }

@@ -1,6 +1,6 @@
 <?php
-require_once 'connexion_bd.php';
-require_once 'fonctions.php';
+require_once __DIR__ . '/../connexion_bd.php';
+require_once __DIR__ . '/../fonctions.php';
 
 $nbSections = $_POST['nbSections'] ?? 0;
 $nom = $_POST['nom'] ?? '';

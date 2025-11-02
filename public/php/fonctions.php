@@ -225,7 +225,7 @@ function ajtLieux($conn, $categorie, $slug, $nom, $dateExplo){
 }
 
 function ajtDescriptifLieux($conn, $idL, $slug, $categorie, $NumCheminImgBanniere, $pays, $histoire){
-    $chemin = "/site_web/img/" . nettoyerTexte($categorie) . "/" . $slug . "/image" . $NumCheminImgBanniere . ".jpeg";
+    $chemin = "/site_web/public/img/" . nettoyerTexte($categorie) . "/" . $slug . "/image" . $NumCheminImgBanniere . ".jpeg";
     $statement = $conn->prepare(
         'INSERT INTO DESCRIPTIFLIEUX (idL, nom_categorie, chemin_img_banniere, pays,  histoire_lieux) 
         VALUES (?, ?, ?, ?, ?)'
@@ -246,7 +246,7 @@ function ajtGallerie($conn, $idL, $categorie, $nbSections){
 }
 
 function ajtImageGallerie($conn, $galleriesArray, $categorie, $slug, $listeCadrage){
-    $cheminDebut = "/site_web/img/" . nettoyerTexte($categorie) . "/" . $slug . "/image";
+    $cheminDebut = "/site_web/public/img/" . nettoyerTexte($categorie) . "/" . $slug . "/image";
     $cptOrdre = 1;
     $cptImage = 1;
     $index = 0;

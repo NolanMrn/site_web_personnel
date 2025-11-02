@@ -1,0 +1,4 @@
+AuthName "Page Admin"
+AuthType Basic
+AuthUserFile C:/xampp/htdocs/site_web/.htpasswd
+Require valid-user

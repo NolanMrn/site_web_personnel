@@ -14,10 +14,10 @@ $AllAnnees = getAllAnnees($conn);
 <html>
 <head>
     <meta charset="utf-8">
-    <link rel="stylesheet" type="text/css" href="/site_web/css/galerie/galerie.css">
-    <link rel="stylesheet" type="text/css" href="/site_web/css/header/header.css">
+    <link rel="stylesheet" type="text/css" href="/site_web/public/css/galerie/galerie.css">
+    <link rel="stylesheet" type="text/css" href="/site_web/public/css/header/header.css">
     <title>Exploratio_nln</title>
-    <link rel="icon" type="image/PNG" href="/site_web/img/accueil/photo_profil.png">
+    <link rel="icon" type="image/PNG" href="/site_web/public/img/accueil/photo_profil.png">
     <link href="https://fonts.googleapis.com/css2?family=Antonio&display=swap" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Anton&display=swap" rel="stylesheet">
 </head>
@@ -83,7 +83,7 @@ $AllAnnees = getAllAnnees($conn);
                         $cheminImg = htmlspecialchars(getImageBanniere($conn, $lieu["idL"], $categorie));
                         $cheminPhysique = $_SERVER['DOCUMENT_ROOT'] . $cheminImg;
                         if (!file_exists($cheminPhysique)) {
-                            $cheminImg = "/site_web/img/accueil/image_defaut.png";
+                            $cheminImg = "/site_web/public/img/accueil/image_defaut.png";
                         }
                         $pays = htmlspecialchars(getPays($conn, $lieu["idL"], $categorie));
                         $nom = htmlspecialchars($lieu["nom"]);
@@ -91,7 +91,7 @@ $AllAnnees = getAllAnnees($conn);
                         $moisChiffre = htmlspecialchars(substr($lieu["date_explo"], 5, 2));
                         $slug = htmlspecialchars($lieu["slug"]);
                         $lienUrl = htmlspecialchars(
-                            "/site_web/php/lieu_indiv.php?slug={$slug}&categorie={$categorie}");
+                            "/site_web/public/php/lieu_indiv.php?slug={$slug}&categorie={$categorie}");
                         ?>
                         <article class="unLieu" data-categorie="<?php echo $categorie ?>" data-pays="<?php echo $pays ?>" data-annee="<?php echo $annee ?>">
                             <img src="<?php echo $cheminImg ?>" alt="">
@@ -103,7 +103,7 @@ $AllAnnees = getAllAnnees($conn);
                                         <hr class="trait-blanc">
                                     </div>
                                     <div>
-                                        <img src="/site_web/img/accueil/drapeau_<?php echo $pays ?>.png" alt="">
+                                        <img src="/site_web/public/img/accueil/drapeau_<?php echo $pays ?>.png" alt="">
                                         <p><?php echo $moisChiffre ?>/<?php echo $annee ?></p>
                                     </div>
                                 </article>
@@ -122,6 +122,6 @@ $AllAnnees = getAllAnnees($conn);
         </div>
     </main>
     <?php include 'footer.php'; ?>
-    <script src="/site_web/js/galerie.js"></script>
+    <script src="/site_web/public/js/galerie.js"></script>
 </body>
 </html>

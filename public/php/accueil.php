@@ -12,10 +12,10 @@ $nbLieux = $troisDerniersLieux->num_rows;
 <html>
     <head>
         <meta charset="utf-8">
-        <link rel="stylesheet" type="text/css" href="/site_web/css/accueil/accueil.css">
-        <link rel="stylesheet" type="text/css" href="/site_web/css/header/header.css">
+        <link rel="stylesheet" type="text/css" href="/site_web/public/css/accueil/accueil.css">
+        <link rel="stylesheet" type="text/css" href="/site_web/public/css/header/header.css">
         <title>Exploratio_nln</title>
-        <link rel="icon" type="image/PNG" href="/site_web/img/accueil/photo_profil.png">
+        <link rel="icon" type="image/PNG" href="/site_web/public/img/accueil/photo_profil.png">
         <link href="https://fonts.googleapis.com/css2?family=Antonio&display=swap" rel="stylesheet">
         <link href="https://fonts.googleapis.com/css2?family=Anton&display=swap" rel="stylesheet">
     </head>
@@ -26,7 +26,7 @@ $nbLieux = $troisDerniersLieux->num_rows;
                 <div class="overlay"></div>
                 <article>
                     <h1>Explorer pour perdurer</h1>
-                    <a href="/site_web/php/galerie.php">
+                    <a href="/site_web/public/php/galerie.php">
                         <div>
                             <p>Voir la galerie</p>
                         </div>
@@ -65,9 +65,9 @@ $nbLieux = $troisDerniersLieux->num_rows;
                                 
                             }
                             ?>
-                            <a href="/site_web/php/galerie.php">
+                            <a href="/site_web/public/php/galerie.php">
                                 <p>Voir Plus</p>
-                                <img src="/site_web/img/accueil/fleche.png" alt="fleche">
+                                <img src="/site_web/public/img/accueil/fleche.png" alt="fleche">
                             </a>
                         </article>
                         <section class="explos_recentes_photos">
@@ -77,7 +77,7 @@ $nbLieux = $troisDerniersLieux->num_rows;
                                 $cheminImg = htmlspecialchars(getImageBanniere($conn, $lieu["idL"], $categorie));
                                 $cheminPhysique = $_SERVER['DOCUMENT_ROOT'] . $cheminImg;
                                 if (!file_exists($cheminPhysique)) {
-                                    $cheminImg = "/site_web/img/accueil/image_defaut.png";
+                                    $cheminImg = "/site_web/public/img/accueil/image_defaut.png";
                                 }
                                 $pays = htmlspecialchars(getPays($conn, $lieu["idL"], $categorie));
                                 $nom = htmlspecialchars($lieu["nom"]);
@@ -85,7 +85,7 @@ $nbLieux = $troisDerniersLieux->num_rows;
                                 $moisChiffre = htmlspecialchars(substr($lieu["date_explo"], 5, 2));
                                 $slug = htmlspecialchars($lieu["slug"]);
                                 $lienUrl = htmlspecialchars(
-                                    "/site_web/php/lieu_indiv.php?slug={$slug}&categorie={$categorie}");
+                                    "/site_web/public/php/lieu_indiv.php?slug={$slug}&categorie={$categorie}");
                                 ?>
                                 <article class="unLieu" data-categorie="<?php echo $categorie ?>" data-pays="<?php echo $pays ?>" data-annee="<?php echo $annee ?>">
                                     <img src="<?php echo $cheminImg ?>" alt="">
@@ -97,7 +97,7 @@ $nbLieux = $troisDerniersLieux->num_rows;
                                                 <hr class="trait-blanc">
                                             </div>
                                             <div>
-                                                <img src="/site_web/img/accueil/drapeau_<?php echo $pays ?>.png" alt="">
+                                                <img src="/site_web/public/img/accueil/drapeau_<?php echo $pays ?>.png" alt="">
                                                 <p><?php echo $moisChiffre ?>/<?php echo $annee ?></p>
                                             </div>
                                         </article>
@@ -126,14 +126,14 @@ $nbLieux = $troisDerniersLieux->num_rows;
                         <section>
                             <h1>Suivez moi sur <span class="orange">Instagram</span></h1>
                             <article>
-                                <img src="/site_web/img/accueil/logo_instagram.png" alt="logo instagram">
+                                <img src="/site_web/public/img/accueil/logo_instagram.png" alt="logo instagram">
                                 <a href="https://www.instagram.com/exploratio_nln/">@Exploratio_nln</a>
                             </article>
                         </section>
                         <section>
                             <h1>Pour égalemment suivre mes <span class="orange">partenaires</span></h1>
                             <article>
-                                <img src="/site_web/img/accueil/logo_instagram.png" alt="logo instagram">
+                                <img src="/site_web/public/img/accueil/logo_instagram.png" alt="logo instagram">
                                 <a href="https://www.instagram.com/pikachurbex/">@pikachurbex</a>
                                 <a href="https://www.instagram.com/grendnez_xploration/">@grendnez_xploration</a>
                                 <a href="https://www.instagram.com/tim_explo_urbain/">@tim_explo_urbain</a>
