@@ -15,8 +15,12 @@ if (!$lieu) {
     header('Location: /404.php');
     exit;
 }
+$nomComplet = htmlspecialchars($lieu["nom"]);
+$motsSepares = explode(' ', $nomComplet);
+$motOrange = end($motsSepares);
+$motStylise = '<span class="orange">' . $motOrange . '</span>';
+$titreFinal = str_replace($motOrange, $motStylise, $nomComplet);
 
-$nom = $lieu["nom"];
 $pays = getPays($conn, $lieu["idL"], $lieu["nom_categorie"]);
 $date = getDateFormate($lieu["date_explo"]);
 $structure = getStructure($conn, $lieu["idL"], $lieu["nom_categorie"]);
@@ -40,13 +44,13 @@ $histoireLieux = getHistoireLieux($conn, $lieu["idL"], $lieu["nom_categorie"]);
             <section class="histoire">
                 <div class="titre">
                     <?php
-                    printf('<h1>%s</h1>', htmlspecialchars($nom));
+                    printf('<h1>%s</h1>', $titreFinal);
                     printf(
                         '<img src="/site_web/img/accueil/drapeau_%s.png" alt="drapeau %s">',
                         htmlspecialchars($pays),
                         htmlspecialchars($pays)
                     );
-                    printf('<p>Date de l’exploration : %s</p>', htmlspecialchars($date));
+                    printf('<p>Date de l’exploration : <span class="orange">%s</span></p>', htmlspecialchars($date));
                     ?>
                 </div>
                 <?php

@@ -1,10 +1,17 @@
-/*positionnement*/
+:root {
+  --couleur-boutton: #B85F49;
+  --couleur-fond-principal: #222222;
+  --couleur-texte-principal: #F0F0E0;
+  --couleur-blanc: #FFFFFF;
+  --couleur-noir: #000000;
+}
 
 .container {
     max-width: 110em;
     width: 100%;
     min-height: 100vh;
     box-sizing: border-box;
+    background-color: var(--couleur-fond-principal);
 }
 
 main {
@@ -12,6 +19,11 @@ main {
     padding: 0;
     display: flex;
     justify-content: center;
+    background-color: var(--couleur-fond-principal);
+}
+
+.orange {
+    color: var(--couleur-boutton);
 }
 
 .histoire .titre {
@@ -24,6 +36,9 @@ main {
 
 .histoire h1 {
     margin-left: 1em;
+    color: var(--couleur-texte-principal);
+    font-size: 2.8em;
+    font-family: 'Anton', sans-serif;
 }
 
 .histoire img {
@@ -37,12 +52,18 @@ main {
     right: 0;
     bottom: 0;
     margin: auto 1.73em 0.5em;
+    color: var(--couleur-texte-principal);
+    font-size: 1.7em;
+    font-family: 'Antonio', sans-serif;
 }
 
 .histoire>p {
     margin: 2.2em 1.9em 0.5em 1.9em;
     line-height: 1.6;
-    padding: 0.2em 0.5em 0.3em 0.5em;
+    padding: 0 0.5em;
+    color: var(--couleur-texte-principal);
+    font-size: 1.5em;
+    border-left: 0.2em solid var(--couleur-boutton);
 }
 
 .exploration {
@@ -55,7 +76,10 @@ main {
     flex-basis: 100%;
     margin: 1.5em 1.9em 1.5em 1.9em;
     line-height: 1.6;
-    padding: 0.2em 0.5em 0.3em 0.5em;
+    padding: 0 0.5em;
+    color: var(--couleur-texte-principal);
+    font-size: 1.5em;
+    border-left: 0.2em solid var(--couleur-boutton);
 }
 
 .exploration article {
@@ -63,6 +87,7 @@ main {
     margin: 1.5em 3em 1.5em 2.6em;
     padding: 0.9em;
     flex-grow: 1;
+    background-color: var(--couleur-blanc)
 }
 
 .exploration .horizontal {
@@ -80,60 +105,20 @@ main {
     display: block;
 }
 
+main a {
+    color: var(--couleur-texte-principal);
+    font-style: italic;
+    text-decoration: none;
+    transition: 0.3s;
+}
+
+main a:hover {
+    color: var(--couleur-boutton);
+}
+
 .text-block {
     background: rgba(0, 0, 0, 0.7);
     padding: 15px 20px;
     border-radius: 8px;
     margin: 20px 0;
-}
-
-/*style*/
-
-main {
-    background-color: #222222;
-}
-
-.container {
-    background-color: #222222;
-}
-
-.histoire h1 {
-    color: white;
-    font-size: 2.8em;
-    font-family: 'Anton', sans-serif;
-}
-
-.histoire .titre p {
-    color: white;
-    font-size: 1.7em;
-    font-family: 'Antonio', sans-serif;
-}
-
-.histoire>p {
-    color: white;
-    font-size: 1.5em;
-    background: rgba(0, 0, 0, 0.5);
-    border: white 0.08em solid;
-}
-
-.exploration p {
-    color: white;
-    font-size: 1.5em;
-    background: rgba(0, 0, 0, 0.5);
-    border: white 0.08em solid;
-}
-
-.exploration article {
-    background-color: white;
-}
-
-main a {
-    color: white;
-    font-style: italic;
-    text-decoration: none;
-}
-
-main a:hover {
-    color: #3B3B3B;
-    transition: 0.3s;
 }
