@@ -2,22 +2,39 @@
 require_once __DIR__ . '/../../connexion_bd.php';
 require_once 'fonctions.php';
 
+require '../../../vendor/autoload.php';
+
+$dotenv = Dotenv\Dotenv::createImmutable(__DIR__ .  '/../..');
+$dotenv->load();
+
+use PHPMailer\PHPMailer\PHPMailer;
+use PHPMailer\PHPMailer\Exception;
+
 if ($_SERVER["REQUEST_METHOD"] === "POST") {
-    // Récupérer et sécuriser les données
     $name = htmlspecialchars(strip_tags($_POST['name']));
     $email = filter_var($_POST['email'], FILTER_SANITIZE_EMAIL);
     $message = htmlspecialchars(strip_tags($_POST['message']));
 
-    // Adresse mail où tu veux recevoir les messages
-    $to = "nolan.exploration@gmail.com";
-    $subject = "Nouveau message depuis le formulaire de contact";
-    $body = "Nom : $name\nEmail : $email\n\nMessage :\n$message";
-    $headers = "From: $email\r\nReply-To: $email";
+    $mail = new PHPMailer(true);
+    try {
+        $mail->isSMTP();
+        $mail->Host = 'smtp.gmail.com';
+        $mail->SMTPAuth = true;
+        $mail->Username = $_ENV['MAIL_USERNAME'];
+        $mail->Password = $_ENV['MAIL_PASSWORD'];
+        $mail->SMTPSecure = 'tls';
+        $mail->Port = 587;
 
-    // Envoyer l'email
-    if (mail($to, $subject, $body, $headers)) {
+        $mail->setFrom('nolan.exploration@gmail.com', 'Exploratio_nln');
+        $mail->addAddress('nolan.exploration@gmail.com');
+        $mail->Subject = "Message de $name";
+        $mail->Body = "De: $email\n\nMessage:\n$message";
+        $mail->addReplyTo($email, $name);
+
+        $mail->send();
         $success = "Votre message a été envoyé avec succès !";
-    } else {
+    } catch (Exception $e) {
+        # echo "{$mail->ErrorInfo}";
         $error = "Une erreur est survenue, veuillez réessayer.";
     }
 }
@@ -51,13 +68,15 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
                         précieux pour améliorer le site.</p>
                 </article>
                 <article class="formulaire">
-                    <?php
-                    if (isset($success)) {
-                        echo "<p class='success'>$success</p>";
-                    } elseif (isset($error)) {
-                        echo "<p class='error'>$error</p>";
-                    }
-                    ?>
+                    <div>
+                        <?php
+                        if (isset($success)) {
+                            echo "<p class='success'>$success</p>";
+                        } elseif (isset($error)) {
+                            echo "<p class='error'>$error</p>";
+                        }
+                        ?>
+                    </div>
                     <form action="" method="post">
                         <article>
                             <label for="name">Nom :</label>

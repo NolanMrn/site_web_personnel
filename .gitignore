@@ -3,3 +3,4 @@ sql/
 connexion_bd.php
 readme.md
 readme.pdf
+.env
