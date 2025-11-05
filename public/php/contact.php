@@ -1,11 +1,6 @@
 <?php
-require_once __DIR__ . '/../../connexion_bd.php';
+require_once 'connexion_bd.php';
 require_once 'fonctions.php';
-
-require '../../../vendor/autoload.php';
-
-$dotenv = Dotenv\Dotenv::createImmutable(__DIR__ .  '/../..');
-$dotenv->load();
 
 use PHPMailer\PHPMailer\PHPMailer;
 use PHPMailer\PHPMailer\Exception;

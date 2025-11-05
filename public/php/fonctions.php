@@ -1,4 +1,10 @@
 <?php
+function initVenv() {
+    require '../../../vendor/autoload.php';
+    $dotenv = Dotenv\Dotenv::createImmutable(__DIR__ .  '/../..');
+    $dotenv->load();
+}
+
 function getLieu($conn, $slug, $categorie) {
     $statement = $conn->prepare('SELECT * FROM LIEUX WHERE slug = ? AND nom_categorie = ?');
     $statement->bind_param("ss", $slug, $categorie);

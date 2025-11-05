@@ -1,5 +1,6 @@
 <?php
 $page_actuelle = basename($_SERVER['PHP_SELF']);
+
 ?>
 
 <header>
