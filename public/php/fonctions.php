@@ -384,10 +384,10 @@ function supprimerLieuEntier($conn, $slug, $categorie) {
 
     supprimerStructureLieu($conn, $idL, $categorie);
 
-    $galleries =  getGalleries($conn, $categorie, $idL);
-    while ($gallerie = $galleries->fetch_assoc()) {
-        supprimerParagrapheLieu($conn, $gallerie);
-        supprimerImageGalerieLieu($conn, $gallerie);
+    $galeries =  getGalleries($conn, $categorie, $idL);
+    while ($galerie = $galeries->fetch_assoc()) {
+        supprimerParagrapheLieu($conn, $galerie['idG']);
+        supprimerImageGalerieLieu($conn, $galerie['idG']);
     }
 
     supprimerGalerieLieu($conn, $idL, $categorie);

@@ -60,8 +60,6 @@ switch ($action) {
     case 'supprimer':
         $lieu = $_POST['lieu'] ?? '';
         list($slug, $categorie) = explode('|', $lieu);
-        echo $slug;
-        echo $categorie;
         $supp = supprimerLieuEntier($conn, $slug, $categorie);
         if ($supp) {
             echo "Le lieu a été supprimé avec succès !";
