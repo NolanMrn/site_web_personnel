@@ -100,6 +100,9 @@ $nbPhotos = 0;
                         <label></label>
                         <button type="submit" class="btn-enregistrer">Enregistrer</button>
                     </div>
+                    <script>
+                        const sections = new Map();
+                    </script>
                     <script src="/site_web/public/js/admin.js">
                     </script>
                 </form>

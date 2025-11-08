@@ -271,7 +271,7 @@ function ajtImageGallerie($conn, $galleriesArray, $categorie, $slug, $listeCadra
     $cptImage = 1;
     $index = 0;
     foreach ($galleriesArray as $gallerie) {
-        foreach ($listeCadrage[$index] as $cadrage) {
+        foreach ($listeCadrage[$index] ?? [] as $cadrage) {
             $cheminEntier = $cheminDebut . $cptImage . ".jpeg";
             $statement = $conn->prepare(
                 'INSERT INTO IMAGEGALLERIE (idG, chemin, ordreImg, cadrage)

@@ -1,11 +1,17 @@
-const sections = new Map();
-
 function initSection(div, id) {
     const btnOrientation = div.querySelectorAll('.btn-orientation');
     const inputOrdre = div.querySelector('.ordre');
     const btnRetour = div.querySelector('.btn-retour');
-    let ordre = [];
-    sections.set(id, ordre);
+
+    let ordre = sections.get(id);
+    if (!ordre) {
+        const texteExistant = inputOrdre.value.trim();
+        ordre = texteExistant
+            ? texteExistant.split(' / ').map(s => s.split('.').slice(1).join('.'))
+            : [];
+        sections.set(id, ordre);
+    }
+    inputOrdre.value = ordre.map((val, i) => (i+1) + "." + val).join(" / ");
 
     btnOrientation.forEach(btn => {
         btn.addEventListener('click', () => {
@@ -47,6 +53,10 @@ function initSection(div, id) {
     });
 }
 
+document.querySelectorAll('.section').forEach(div => {
+    const id = div.querySelector('.ordre').id;
+    initSection(div, id);
+});
 
 const page = document.querySelector('.container');
 let nbSection = parseInt(page.dataset.nbsections);
@@ -121,13 +131,15 @@ function nouveauPaysCategorie(select, container, idString) {
 const selectCategorie = document.getElementById('categorie');
 const nouvelleCategorieContainer = document.getElementById('nouvelle_categorie_container');
 const idStringCategorie = 'nouvelle_categorie';
-nouveauPaysCategorie(selectCategorie, nouvelleCategorieContainer, idStringCategorie);
-
+if (selectCategorie && nouvelleCategorieContainer) {
+    nouveauPaysCategorie(selectCategorie, nouvelleCategorieContainer, idStringCategorie);
+}
 const selectPays = document.getElementById('pays');
 const nouveauPaysContainer = document.getElementById('nouveau_pays_container');
 const idStringPays = 'nouveau_pays';
-nouveauPaysCategorie(selectPays, nouveauPaysContainer, idStringPays);
-
+if (selectPays && nouveauPaysContainer) {
+    nouveauPaysCategorie(selectPays, nouveauPaysContainer, idStringPays);
+}
 
 
 function validerFormulaire() {
