@@ -39,6 +39,12 @@ function getDateFormate($date_explo){
     return $moisLettre . " " . $annee;
 }
 
+function getDateFormateInt($date_explo){
+    $annee = substr($date_explo, 0, 4);
+    $moisChiffre = substr($date_explo, 5, 2);
+    return $annee . "-" . $moisChiffre;
+}
+
 function getAllCategories($conn) {
     $statement = $conn->prepare(
         'SELECT * FROM CATEGORIE'
@@ -170,6 +176,14 @@ function getImageBanniere($conn, $idL, $categorie){
     $result = $statement->get_result();
     $chemin = $result->fetch_assoc();
     return $chemin["chemin_img_banniere"] ?? '';
+}
+
+function extraireNumeroAvantExtension(string $chemin) {
+    $nomFichier = pathinfo($chemin, PATHINFO_FILENAME);
+    if (preg_match('/(\d+)$/', $nomFichier, $matches)) {
+        return $matches[1];
+    }
+    return null;
 }
 
 function getIdL($conn, $categorie, $slug) {

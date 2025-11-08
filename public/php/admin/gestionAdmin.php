@@ -23,7 +23,7 @@
                             <a href="/site_web/public/php/admin/AjouterLieuAdmin.php">Ajouter un lieu</a>
                         </li>
                         <li>
-                            <a href="">Modifier un lieu</a>
+                            <a href="/site_web/public/php/admin/ModifierLieuAdmin.php">Modifier un lieu</a>
                         </li>
                         <li>
                             <a href="/site_web/public/php/admin/SupprimerLieuAdmin.php">Supprimer un lieu</a>
