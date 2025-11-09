@@ -14,8 +14,10 @@ if (isset($_GET['page'])) {
 $limit = 12;
 $offset = ($page - 1) * $limit;
 
-$lieux = getAllLieuxParDouze($conn, $limit, $offset, $categorieFiltre, $paysFiltre, $anneeFiltre);
-$nbLieuxTotal = getNbLieux($conn, $categorieFiltre, $paysFiltre, $anneeFiltre);
+$recherche = isset($_GET['recherche']) ? $_GET['recherche'] : '';
+
+$lieux = getAllLieuxParDouze($conn, $limit, $offset, $categorieFiltre, $paysFiltre, $anneeFiltre, $recherche);
+$nbLieuxTotal = getNbLieux($conn, $categorieFiltre, $paysFiltre, $anneeFiltre, $recherche);
 $nbPages = ceil($nbLieuxTotal / $limit);
 $nbLieux = $lieux->num_rows;
 
@@ -46,11 +48,11 @@ $AllAnnees = getAllAnnees($conn);
                         <p>Filtres</p>
                         <a href="/site_web/public/php/galerie.php" class="btn_croix"></a>
                     </section>
-                    <form class="recherche">
-                        <button id="btn_recherche" type="button" class="btn_recherche"></button>
-                        <input id="recherche_case" type="text" class="recherche_case" placeholder="Rechercher un lieu précis...">
+                    <form class="recherche" method="get" action="/site_web/public/php/galerie.php">
+                        <button type="submit" class="btn_recherche"></button>
+                        <input type="text" name="recherche" class="recherche_case" placeholder="Rechercher un lieu précis..." value="<?php echo htmlspecialchars($recherche); ?>">
                     </form>
-                    <article data-filtre="categorie">
+                    <article>
                         <p>Par <span class="orange">catégorie</span> :</p>
                         <ul>
                             <?php
@@ -77,7 +79,7 @@ $AllAnnees = getAllAnnees($conn);
                             ?>
                         </ul>
                     </article>
-                    <article  data-filtre="pays">
+                    <article>
                         <p>Par <span class="orange">pays</span> :</p>
                         <ul>
                             <?php
@@ -105,7 +107,7 @@ $AllAnnees = getAllAnnees($conn);
                             ?>
                         </ul>
                     </article>
-                    <article  data-filtre="annee">
+                    <article>
                         <p>Par <span class="orange">années</span> :</p>
                         <ul>
                             <?php
@@ -151,7 +153,7 @@ $AllAnnees = getAllAnnees($conn);
                         $lienUrl = htmlspecialchars(
                             "/site_web/public/php/lieu_indiv.php?slug={$slug}&categorie={$categorie}");
                         ?>
-                        <article class="unLieu" data-categorie="<?php echo $categorie ?>" data-pays="<?php echo $pays ?>" data-annee="<?php echo $annee ?>">
+                        <article class="unLieu">
                             <img src="<?php echo $cheminImg ?>" alt="">
                             <div class="content">
                                 <article>
@@ -198,6 +200,9 @@ $AllAnnees = getAllAnnees($conn);
                 }
                 if ($anneeFiltre) {
                     $requeteChaine .= '&annee=' . intval($anneeFiltre);
+                }
+                if ($recherche) {
+                    $requeteChaine .= '&recherche=' . urlencode($recherche);
                 }
                 if ($page > 1) {
                     ?>

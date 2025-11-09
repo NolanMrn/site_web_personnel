@@ -14,7 +14,7 @@ function getLieu($conn, $slug, $categorie) {
     return $lieu;
 }
 
-function getNbLieux($conn, $categorie = null, $pays = null, $annee = null) {
+function getNbLieux($conn, $categorie = null, $pays = null, $annee = null, $recherche = null) {
     $sql = "SELECT COUNT(*) AS total FROM LIEUX NATURAL JOIN DESCRIPTIFLIEUX WHERE 1=1";
     $params = [];
     $types = "";
@@ -32,6 +32,11 @@ function getNbLieux($conn, $categorie = null, $pays = null, $annee = null) {
         $sql .= " AND YEAR(date_explo) = ?";
         $params[] = $annee;
         $types .= "i";
+    }
+    if ($recherche) {
+        $sql .= " AND nom LIKE ?";
+        $params[] = '%' . $recherche . '%';
+        $types .= "s";
     }
     $statement = $conn->prepare($sql);
     if (!empty($params)) {
@@ -187,7 +192,7 @@ function getAllLieux($conn){
     return $lieux;
 }
 
-function getAllLieuxParDouze($conn, $limit, $offset, $categorie = null, $pays = null, $annee = null) {
+function getAllLieuxParDouze($conn, $limit, $offset, $categorie = null, $pays = null, $annee = null, $recherche = null) {
     $sql = "SELECT idL, slug, nom, date_explo, nom_categorie, pays FROM LIEUX NATURAL JOIN DESCRIPTIFLIEUX WHERE 1=1";
     $params = [];
     $types = "";
@@ -205,6 +210,11 @@ function getAllLieuxParDouze($conn, $limit, $offset, $categorie = null, $pays = 
         $sql .= " AND YEAR(date_explo) = ?";
         $params[] = $annee;
         $types .= "i";
+    }
+    if ($recherche) {
+        $sql .= " AND nom LIKE ?";
+        $params[] = '%' . $recherche . '%';
+        $types .= "s";
     }
     $sql .= " ORDER BY date_explo DESC LIMIT ? OFFSET ?";
     $params[] = $limit;

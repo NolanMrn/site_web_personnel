@@ -45,6 +45,7 @@ main {
     justify-content: center;
     align-items: flex-start;
     margin-top: 15em;
+    text-align: left;
 }
 
 .filtre {
