@@ -31,6 +31,7 @@ $histoireLieux = getHistoireLieux($conn, $lieu["idL"], $lieu["nom_categorie"]);
 <html>
 <head>
     <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" type="text/css" href="/site_web/public/css/individuel/individuel.css">
     <link rel="stylesheet" type="text/css" href="/site_web/public/css/header/header.css">
     <title>Exploratio_nln</title>

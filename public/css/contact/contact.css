@@ -139,3 +139,36 @@ textarea {
     color: red;
     margin-bottom: 1em;
 }
+
+@media screen and (max-width: 640px) {
+
+    .description h1 {
+        font-size: 1.4em;
+        font-family: 'Anton', sans-serif;
+        color: var(--couleur-texte-principal);
+        margin-bottom: 1.7em;
+    }
+
+    .description p{
+        width: 100%;
+        font-size: 1em;
+        color: var(--couleur-texte-principal);
+        font-weight: 100;
+        margin-top: 0.6em;
+    }
+
+    .contact {
+        margin-top: 4em;
+        padding: 2em;
+        flex-direction: column;
+    }
+
+    .description {
+        width: 100%;
+        padding: 5em 0;
+    }
+
+   .formulaire {
+        margin-bottom: 3em;
+   }
+}
