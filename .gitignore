@@ -1,7 +1,2 @@
 .htpasswd
-sql/
-readme.md
-readme.pdf
 .env
-Anton
-watermark_all.py
