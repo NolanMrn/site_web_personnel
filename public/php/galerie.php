@@ -15,6 +15,7 @@
 <body>
     <?php include 'header.php'; ?>
     <?php include 'galerieContenu.php'; ?>
+    <script src="/site_web/public/js/responsiveGalerie.js"></script>
     <script src="/site_web/public/js/animation.js"></script>
 </body>
 </html>

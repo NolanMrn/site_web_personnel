@@ -30,99 +30,109 @@ $AllAnnees = getAllAnnees($conn);
 <main>
     <div class="container">
         <section class="block">
-            <button class="btn-filtre">Filtres</button>
+            
             <nav class="filtre anim_section">
-                <section class="haut">
-                    <p>Filtres</p>
-                    <a href="/site_web/public/php/galerie.php" class="btn_croix"></a>
+                <section class="telephone">
+                    <p>Nombre total de Lieux : <?php echo htmlspecialchars($nbLieuxTotal) ?></p>
+                    <button id="btn-filtre" class="btn-filtre">
+                        <img src="/site_web/public/img/accueil/filtre.png" alt="Icône filtre">
+                        Filtres
+                    </button>
                 </section>
-                <form class="recherche" method="get" action="/site_web/public/php/galerie.php">
-                    <button type="submit" class="btn_recherche"></button>
-                    <input type="text" name="recherche" class="recherche_case" placeholder="Rechercher un lieu précis..." value="<?php echo htmlspecialchars($recherche); ?>">
-                </form>
-                <article>
-                    <p>Par <span class="orange">catégorie</span> :</p>
-                    <ul>
-                        <?php
-                        while ($cat = $categories->fetch_assoc()) {
-                            $isActive = ($categorieFiltre === $cat['nom_categorie']) ? 'active' : '';
-                            $categorieParam = $isActive ? '' : 'categorie=' . urlencode($cat['nom_categorie']);
-                            $url = "";
-                            if ($categorieParam) {
-                                $url .= "?" . $categorieParam;
+                <section class="navFiltre">
+                    <section class="haut">
+                        <p>Filtres</p>
+                        <a href="/site_web/public/php/galerie.php" class="btn_croix"></a>
+                    </section>
+                    <form class="recherche" method="get" action="/site_web/public/php/galerie.php">
+                        <button type="submit" class="btn_recherche"></button>
+                        <input type="text" name="recherche" class="recherche_case" placeholder="Rechercher un lieu précis..." value="<?php echo htmlspecialchars($recherche); ?>">
+                    </form>
+                    <article>
+                        <p>Par <span class="orange">catégorie</span> :</p>
+                        <ul>
+                            <?php
+                            while ($cat = $categories->fetch_assoc()) {
+                                $isActive = ($categorieFiltre === $cat['nom_categorie']) ? 'active' : '';
+                                $categorieParam = $isActive ? '' : 'categorie=' . urlencode($cat['nom_categorie']);
+                                $url = "";
+                                if ($categorieParam) {
+                                    $url .= "?" . $categorieParam;
+                                }
+                                if ($paysFiltre) {
+                                    $url .= ($url ? "&" : "?") . "pays=" . urlencode($paysFiltre);
+                                }
+                                if ($anneeFiltre) {
+                                    $url .= ($url ? "&" : "?") . "annee=" . $anneeFiltre;
+                                }
+                                $href = $url ?: "/site_web/public/php/galerie.php";
+                                printf('<li><a href="%s" class="btn_filtre anim-link %s">%s</a></li>', 
+                                    $href,
+                                    $isActive,
+                                    htmlspecialchars($cat['nom_categorie'])
+                                );
                             }
-                            if ($paysFiltre) {
-                                $url .= ($url ? "&" : "?") . "pays=" . urlencode($paysFiltre);
+                            ?>
+                        </ul>
+                    </article>
+                    <article>
+                        <p>Par <span class="orange">pays</span> :</p>
+                        <ul>
+                            <?php
+                            while ($p = $allPays->fetch_assoc()) {      
+                                $isActive = ($paysFiltre === $p['pays']) ? 'active' : '';
+                                $paysParam = $isActive ? '' : "pays=" . urlencode($p['pays']);
+                                $url = "";
+                                if ($categorieFiltre) {
+                                    $url .= "?" . "categorie=" . $categorieFiltre;
+                                }
+                                if ($paysParam) {
+                                    $url .= ($url ? "&" : "?") . $paysParam;
+                                }
+                                if ($anneeFiltre) {
+                                    $url .= ($url ? "&" : "?") . "annee=" . $anneeFiltre;
+                                }
+                                $href = $url ?: "/site_web/public/php/galerie.php";
+                                printf(
+                                    '<li><a href="%s" class="btn_filtre anim-link %s">%s</a></li>',
+                                    $href,
+                                    $isActive,
+                                    htmlspecialchars($p['pays'])
+                                );
                             }
-                            if ($anneeFiltre) {
-                                $url .= ($url ? "&" : "?") . "annee=" . $anneeFiltre;
+                            ?>
+                        </ul>
+                    </article>
+                    <article>
+                        <p>Par <span class="orange">années</span> :</p>
+                        <ul>
+                            <?php
+                            foreach ($AllAnnees as $a) {
+                                $isActive = ((string) $anneeFiltre === $a) ? 'active' : '';
+                                $anneeParam = $isActive ? '' : "annee=" . $a;
+                                $url = "";
+                                if ($categorieFiltre) {
+                                    $url .= "?" . "categorie=" . $categorieFiltre;
+                                }
+                                if ($paysFiltre) {
+                                    $url .= ($url ? "&" : "?") . "pays=" . urlencode($paysFiltre);
+                                }
+                                if ($anneeParam) {
+                                    $url .= ($url ? "&" : "?") . $anneeParam;
+                                }
+                                $href = $url ?: "/site_web/public/php/galerie.php";
+                                printf('<li><a href="%s" class="btn_filtre anim-link %s">%s</a></li>',
+                                    $href,
+                                    $isActive,
+                                    htmlspecialchars($a)
+                                );
                             }
-                            $href = $url ?: "/site_web/public/php/galerie.php";
-                            printf('<li><a href="%s" class="btn_filtre anim-link %s">%s</a></li>', 
-                                $href,
-                                $isActive,
-                                htmlspecialchars($cat['nom_categorie'])
-                            );
-                        }
-                        ?>
-                    </ul>
-                </article>
-                <article>
-                    <p>Par <span class="orange">pays</span> :</p>
-                    <ul>
-                        <?php
-                        while ($p = $allPays->fetch_assoc()) {      
-                            $isActive = ($paysFiltre === $p['pays']) ? 'active' : '';
-                            $paysParam = $isActive ? '' : "pays=" . urlencode($p['pays']);
-                            $url = "";
-                            if ($categorieFiltre) {
-                                $url .= "?" . "categorie=" . $categorieFiltre;
-                            }
-                            if ($paysParam) {
-                                $url .= ($url ? "&" : "?") . $paysParam;
-                            }
-                            if ($anneeFiltre) {
-                                $url .= ($url ? "&" : "?") . "annee=" . $anneeFiltre;
-                            }
-                            $href = $url ?: "/site_web/public/php/galerie.php";
-                            printf(
-                                '<li><a href="%s" class="btn_filtre anim-link %s">%s</a></li>',
-                                $href,
-                                $isActive,
-                                htmlspecialchars($p['pays'])
-                            );
-                        }
-                        ?>
-                    </ul>
-                </article>
-                <article>
-                    <p>Par <span class="orange">années</span> :</p>
-                    <ul>
-                        <?php
-                        foreach ($AllAnnees as $a) {
-                            $isActive = ((string) $anneeFiltre === $a) ? 'active' : '';
-                            $anneeParam = $isActive ? '' : "annee=" . $a;
-                            $url = "";
-                            if ($categorieFiltre) {
-                                $url .= "?" . "categorie=" . $categorieFiltre;
-                            }
-                            if ($paysFiltre) {
-                                $url .= ($url ? "&" : "?") . "pays=" . urlencode($paysFiltre);
-                            }
-                            if ($anneeParam) {
-                                $url .= ($url ? "&" : "?") . $anneeParam;
-                            }
-                            $href = $url ?: "/site_web/public/php/galerie.php";
-                            printf('<li><a href="%s" class="btn_filtre anim-link %s">%s</a></li>',
-                                $href,
-                                $isActive,
-                                htmlspecialchars($a)
-                            );
-                        }
-                        ?>
-                    </ul>
-                </article>
+                            ?>
+                        </ul>
+                    </article>
+                </section>
             </nav>
+            <section class="remplissage"></section>
             <section class="explos_photos anim_section">
                 <?php
                 while ($lieu = $lieux->fetch_assoc()) {
