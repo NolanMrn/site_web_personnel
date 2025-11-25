@@ -30,6 +30,7 @@ $AllAnnees = getAllAnnees($conn);
 <main>
     <div class="container">
         <section class="block">
+            <button class="btn-filtre">Filtres</button>
             <nav class="filtre anim_section">
                 <section class="haut">
                     <p>Filtres</p>
