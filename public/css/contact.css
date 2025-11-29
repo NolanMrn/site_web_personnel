@@ -172,3 +172,43 @@ textarea {
         margin-bottom: 3em;
    }
 }
+
+@media screen and (min-width: 900px) and (max-width: 1440px) {
+
+    .contact {
+        margin-top: 12em;
+        margin-bottom: 5em;
+    }
+
+    .container {
+        padding: 0 5em;
+    }
+
+    .description h1 {
+        font-size: 1.7em;
+    }
+
+    .description p {
+        font-size: 1em;
+        font-weight: 100;
+    }
+
+    .formulaire article {
+        margin: 0.5em 1em;
+    }
+
+    .formulaire label {
+        font-size: 1.1em;
+    }
+
+    .formulaire input,
+    .formulaire textarea {
+        margin-top: 0.5em;
+        font-size: 0.8em;
+        padding: 0.5em;
+    }
+
+    .formulaire button {
+        padding: 0.5em;
+    }
+}

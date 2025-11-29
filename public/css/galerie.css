@@ -157,6 +157,7 @@ main {
     font-family: 'Antonio', sans-serif;
     will-change: transform;
 }
+
 .filtre article a:hover {
     transform: scale(1.07);
 }
@@ -345,6 +346,9 @@ main {
     color: var(--couleur-texte-principal);
 }
 
+.nbLieuxOrdi {
+    margin-bottom: 1em;
+}
 
 @media screen and (max-width: 640px) {
 
@@ -487,5 +491,155 @@ main {
 
     .pagination {
         padding: 0.5em 1.1em 0.9em 1.1em;
+    }
+
+    .nbLieuxOrdi {
+        display: none !important;
+    }
+}
+
+@media screen and (min-width: 900px) and (max-width: 1440px) {
+
+    .container {
+        padding: 0 7em;
+    }
+
+    .block {
+        flex-direction: column;
+        margin-top: 12em;
+        position: relative;
+    }
+
+    .remplissage {
+        display: block;
+        width: 100%;
+    }
+
+    .filtre {
+        position: absolute;
+        z-index: 2;
+        width: 100%;
+        top: 0%;
+        margin-top: 0;
+    }
+
+    .navFiltre {
+        overflow: hidden;
+        height: 0;
+        opacity: 0;
+        transition: height 0.5s ease, opacity 0.5s ease;
+        display: flex;
+        flex-direction: column;
+        padding: 0 1.5em;
+    }
+
+    .navFiltre.active {
+        opacity: 1;
+    }
+
+    .telephone {
+        display: flex;
+        width: 100%;
+        flex-direction: row;
+        align-items: center;
+        justify-content: space-between;
+        padding: 1em 1.5em;
+        background-color: var(--couleur-noir);
+        box-shadow: 0px 0px 15px 15px black;
+    }
+
+    .telephone p {
+        font-size: 1em;
+        color: var(--couleur-texte-principal);
+    }
+
+    .resultat {
+        text-align: center;
+    }
+
+    .resultat h1 {
+        font-size: 1.5em;
+        margin-bottom: 1.5em;
+    }
+
+    .btn-filtre {
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        gap: 0.2em;
+        font-size: 1em;
+        color: var(--couleur-texte-principal);
+        padding: 0 1em;
+        border-radius: var(--border-radius-bouton);
+        border: 0.04em solid var(--couleur-noir);
+        background-color: var(--couleur-boutton);
+        box-shadow: 5px 5px 20px 2px var(--couleur-noir);
+    }
+
+    .btn-filtre img {
+        width: 2em;
+        height: auto;
+    }
+
+
+    .explos_photos {
+        gap: 3em;
+        margin-left: 0;
+        margin-top: 2em;
+    }
+
+    .explos_photos>article {
+        padding: 0.8em;
+        flex-basis: 27%;
+    }
+
+    .content {
+        align-items: center;
+        width: 100%;
+        margin-top: 0;
+    }
+
+    .explos_photos>article article {
+        width: 70%;
+        padding-top: 0;
+        margin-top: 7%;
+    }
+
+    .explos_photos>article article h2{
+        font-size: 1.2em;
+        margin-top: 10%;
+        margin-bottom: 5%;
+    }
+
+    .explos_photos>article article div {
+        align-items: center;
+        margin-top: 10%;
+    }
+
+    .explos_photos>article article div h2 {
+        margin-bottom: 0;
+        margin-top: 0;
+    }
+
+    .explos_photos>article article img {
+        width: 1.7em;
+        height: auto;
+    }
+
+    .explos_photos>article article div p{
+        font-size: 1em;
+    }
+
+    .explos_photos>article a {
+        font-size: 1em;
+        margin-top: 0.5em;
+    }
+
+    .pagination {
+        padding: 0.5em 1.1em 0.9em 1.1em;
+    }
+
+    .nbLieuxOrdi {
+        display: none !important;
     }
 }

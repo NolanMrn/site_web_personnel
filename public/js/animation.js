@@ -65,3 +65,7 @@ document.querySelectorAll('.anim-link').forEach(a => {
     }, 500);
   });
 });
+
+
+
+console.log(window.innerWidth);

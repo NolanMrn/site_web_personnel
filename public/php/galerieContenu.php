@@ -32,6 +32,7 @@ $AllAnnees = getAllAnnees($conn);
         <section class="block">
             
             <nav class="filtre anim_section">
+                <p class="nbLieuxOrdi">Nombre total de Lieux : <?php echo htmlspecialchars($nbLieuxTotal) ?></p>
                 <section class="telephone">
                     <p>Nombre total de Lieux : <?php echo htmlspecialchars($nbLieuxTotal) ?></p>
                     <button id="btn-filtre" class="btn-filtre">
