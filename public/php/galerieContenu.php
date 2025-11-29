@@ -161,7 +161,7 @@ $AllAnnees = getAllAnnees($conn);
                         <img src="<?php echo $cheminImg ?>" alt="">
                         <div class="content">
                             <article>
-                                <div>
+                                <div class="premier">
                                     <hr class="trait-blanc">
                                     <h2><?php echo $nom ?></h2>
                                     <hr class="trait-blanc">
