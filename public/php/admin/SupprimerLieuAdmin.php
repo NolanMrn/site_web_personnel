@@ -11,8 +11,8 @@ $allLieux = getAllLieux($conn);
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" type="text/css" href="/site_web/public/css/admin/admin.css">
-    <link rel="stylesheet" type="text/css" href="/site_web/public/css/header/header.css">
+    <link rel="stylesheet" type="text/css" href="/site_web/public/css/admin.css">
+    <link rel="stylesheet" type="text/css" href="/site_web/public/css/header.css">
     <title>Exploratio_nln</title>
     <link rel="icon" type="image/PNG" href="/site_web/public/img/accueil/photo_profil.png">
     <link href="https://fonts.googleapis.com/css2?family=Antonio&display=swap" rel="stylesheet">
