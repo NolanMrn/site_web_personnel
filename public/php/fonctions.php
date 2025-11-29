@@ -304,6 +304,24 @@ function verifOuAjtCategorie($conn, $categorie) {
     }
 }
 
+function bonneExtension($conn, $categorie, $slug, $NumCheminImgBanniere) {
+    $BaseChemin = "/site_web/public/img/" . nettoyerTexte($categorie) . "/" . $slug . "/image" . $NumCheminImgBanniere;
+    $extensions = [".jpeg", ".jpg", ".png"];
+    $chemin = null;
+
+    foreach ($extensions as $ext) {
+        $testChemin = $_SERVER['DOCUMENT_ROOT'] . $BaseChemin . $ext;
+        if (file_exists($testChemin)) {
+            $chemin = $BaseChemin . $ext;
+            break;
+        }
+    }
+     if ($chemin === null) {
+        $chemin = "/site_web/public/img/default-placeholder.jpeg";
+    }
+    return $chemin;
+}
+
 function ajtLieux($conn, $categorie, $slug, $nom, $dateExplo){
     $statement = $conn->prepare(
         'INSERT INTO LIEUX (nom_categorie, slug, nom, date_explo) 
@@ -314,7 +332,8 @@ function ajtLieux($conn, $categorie, $slug, $nom, $dateExplo){
 }
 
 function ajtDescriptifLieux($conn, $idL, $slug, $categorie, $NumCheminImgBanniere, $pays, $histoire){
-    $chemin = "/site_web/public/img/" . nettoyerTexte($categorie) . "/" . $slug . "/image" . $NumCheminImgBanniere . ".jpeg";
+    $chemin = bonneExtension($conn, $categorie, $slug, $NumCheminImgBanniere);
+
     $statement = $conn->prepare(
         'INSERT INTO DESCRIPTIFLIEUX (idL, nom_categorie, chemin_img_banniere, pays,  histoire_lieux) 
         VALUES (?, ?, ?, ?, ?)'
@@ -335,13 +354,13 @@ function ajtGallerie($conn, $idL, $categorie, $nbSections){
 }
 
 function ajtImageGallerie($conn, $galleriesArray, $categorie, $slug, $listeCadrage){
-    $cheminDebut = "/site_web/public/img/" . nettoyerTexte($categorie) . "/" . $slug . "/image";
     $cptOrdre = 1;
     $cptImage = 1;
     $index = 0;
     foreach ($galleriesArray as $gallerie) {
         foreach ($listeCadrage[$index] ?? [] as $cadrage) {
-            $cheminEntier = $cheminDebut . $cptImage . ".jpeg";
+            $cheminEntier = bonneExtension($conn, $categorie, $slug, $cptImage);
+
             $statement = $conn->prepare(
                 'INSERT INTO IMAGEGALLERIE (idG, chemin, ordreImg, cadrage)
                 VALUES (?, ?, ?, ?)'
@@ -511,7 +530,8 @@ function updateLieu($conn, $idL, $categorie, $nom, $date_explo) {
 }
 
 function updateDescriptifLieux($conn, $idL, $categorie, $NumCheminImgBanniere, $histoire, $slug) {
-    $chemin = "/site_web/public/img/" . nettoyerTexte($categorie) . "/" . $slug . "/image" . $NumCheminImgBanniere . ".jpeg";
+    $chemin = bonneExtension($conn, $categorie, $slug, $NumCheminImgBanniere);
+
     $statement = $conn->prepare(
         'UPDATE DESCRIPTIFLIEUX SET chemin_img_banniere = ?, histoire_lieux = ? WHERE idL = ? AND nom_categorie = ? AND (chemin_img_banniere != ? OR histoire_lieux != ?)'
     );
