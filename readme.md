@@ -1,7 +1,6 @@
 ## A faire encore 
 
 - mise en place du respansive format tablette
-- ajouter resultat de recherche : "bois"
 - reglage jpeg png jpg
 - realiser la partie Éthique & Légal
 
@@ -14,3 +13,4 @@
 - supprimer categorie si dernier lieu de cette categorie supp
 - animation js sur l'ensemble du site
 - mise en place du respansive format telephone
+- ajouter resultat de recherche : "bois"

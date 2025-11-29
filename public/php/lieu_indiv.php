@@ -43,15 +43,22 @@ $histoireLieux = getHistoireLieux($conn, $lieu["idL"], $lieu["nom_categorie"]);
     <?php include 'header.php'; ?>
     <main>
         <div class="container">
+            <section class="retour">
+                <a class="back-button" href="/site_web/public/php/galerie.php">← Retour à la galerie</a>
+            </section>
             <section class="histoire">
                 <div class="titre">
+                    <div>
+                        <?php
+                            printf('<h1>%s</h1>', $titreFinal);
+                            printf(
+                                '<img src="/site_web/public/img/accueil/drapeau_%s.png" alt="drapeau %s">',
+                                htmlspecialchars($pays),
+                                htmlspecialchars($pays)
+                            );
+                        ?>
+                    </div>
                     <?php
-                    printf('<h1>%s</h1>', $titreFinal);
-                    printf(
-                        '<img src="/site_web/public/img/accueil/drapeau_%s.png" alt="drapeau %s">',
-                        htmlspecialchars($pays),
-                        htmlspecialchars($pays)
-                    );
                     printf('<p>Date de l’exploration : <span class="orange">%s</span></p>', htmlspecialchars($date));
                     ?>
                 </div>
@@ -88,5 +95,6 @@ $histoireLieux = getHistoireLieux($conn, $lieu["idL"], $lieu["nom_categorie"]);
     </main>
     <?php include 'footer.php'; ?>
     <script src="/site_web/public/js/animation.js"></script>
+    <script src="/site_web/public/js/responsive.js"></script>
 </body>
 </html>
