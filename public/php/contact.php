@@ -96,5 +96,6 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
     </main>
     <?php include 'footer.php'; ?>
     <script src="/site_web/public/js/animation.js"></script>
+     <script src="/site_web/public/js/responsive.js"></script>
 </body>
 </html>

@@ -28,7 +28,7 @@ header {
 }
 
 
-header img {
+header > img {
     width: 5em;
     height: auto;
     margin-left: 17.35em;
@@ -87,6 +87,9 @@ header li a.active {
     color: var(--couleur-texte-principal);
 }
 
+header button {
+    display: none;
+}
 
 footer {
     background: var(--couleur-noir);
@@ -167,12 +170,13 @@ footer a.active {
 
     header {
         flex-wrap: wrap;
-        justify-content: left;
+        justify-content: space-between;
         padding: 0.5em 0;
         box-shadow: 0 5px 30px 30px var(--couleur-noir);
+        flex-wrap: wrap;
     }
 
-    header img {
+    header > img {
         margin: 0;
         width: 4em;
         padding-left: 1em;
@@ -182,18 +186,41 @@ footer a.active {
         flex-basis: auto;
         flex-grow: 0;
         font-size: 1.5em;
-        padding: 0.5em 1em;
+        padding: 0.5em 0;
         margin-left: 0;
     }
 
     header nav {
-        display: none;
+        overflow: hidden;
+        height: 0;
+        opacity: 0;
+        transition: height 0.4s ease, opacity 0.4s ease;
         margin: 0;
+        flex-basis: 100%;
+    }
+
+    header nav.active {
+        opacity: 1;
     }
 
     header .menu {
-        gap: 0;
+        flex-direction: column;
+        justify-content: center;
+        gap: 1em;
         padding: 0;
+        margin-top: 1em;
+    }
+
+    header button {
+        display: block;
+        background: transparent;
+        border: none;
+    }
+
+    header button img {
+        width: 3.4em;
+        height: auto;
+        margin-right: 1.5em;
     }
 
     footer>section {

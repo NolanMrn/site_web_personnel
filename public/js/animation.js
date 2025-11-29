@@ -7,7 +7,6 @@ window.onload = function() {
   }
   if (window.location.pathname.includes("galerie") && localStorage.getItem("alreadyAnimated") === "true") {
     header.style.transition = "0s";
-    console.log("esvsrdgvgres");
     header.style.opacity = 1;
     header.style.transform = 'translateY(0)';
     filtre.classList.remove("anim_section");
