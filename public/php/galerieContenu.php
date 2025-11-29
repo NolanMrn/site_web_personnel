@@ -135,6 +135,12 @@ $AllAnnees = getAllAnnees($conn);
             <section class="remplissage"></section>
             <section class="explos_photos anim_section">
                 <?php
+                if ($recherche) { ?>
+                    <div class="resultat">
+                        <h1>Résultats pour : "<?php echo htmlspecialchars($recherche) ?>"</h1>
+                    </div>
+                <?php 
+                }
                 while ($lieu = $lieux->fetch_assoc()) {
                     $categorie = htmlspecialchars($lieu["nom_categorie"]);
                     $cheminImg = htmlspecialchars(getImageBanniere($conn, $lieu["idL"], $categorie));
