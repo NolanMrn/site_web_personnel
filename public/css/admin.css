@@ -172,3 +172,14 @@ textarea {
   opacity: 1;
   transform: translateY(0);
 }
+
+.success {
+    color: #B85F49 !important;
+    font-size: 1em !important;
+    text-align: left !important;
+}
+.error {
+    color: red !important;
+    font-size: 1em !important;
+    text-align: left !important;
+}

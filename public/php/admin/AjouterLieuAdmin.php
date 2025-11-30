@@ -1,11 +1,23 @@
 <?php
+
+ini_set('display_errors', 1);
+ini_set('display_startup_errors', 1);
+error_reporting(E_ALL);
+
 require_once __DIR__ . '/../connexion_bd.php';
 require_once __DIR__ . '/../fonctions.php';
+
+$success = '';
+$error = '';
+if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['action'])) {
+    include 'save_lieu.php';
+}
 
 $categories = getAllCategories($conn);
 $pays = getAllPays($conn);
 $nbSections = 0;
 $nbPhotos = 0;
+
 ?>
 
 <!DOCTYPE html>
@@ -21,15 +33,25 @@ $nbPhotos = 0;
     <link href="https://fonts.googleapis.com/css2?family=Anton&display=swap" rel="stylesheet">
 </head>
 <body>
-    <?php include '../header.php'; ?>
+    <?php include '../header.php';?>
     <main>
         <div class="container" data-nbSections = "<?php echo $nbSections ?>">
             <section class="block anim_section">
                 <h1>Ajouter un <span class="orange">lieu</span></h1>
-                <form class="form_lieu visible" method="POST" action="save_lieu.php" onsubmit="return validerFormulaire()">
+                <form class="form_lieu visible" method="POST" onsubmit="return validerFormulaire()">
                     <input type="hidden" name="nbSections" id="nbSections" value="<?php echo $nbSections; ?>">
                     <input type="hidden" name="nbPhotos" id="nbPhotos" value="<?php echo $nbPhotos; ?>">
                     <input type="hidden" name="action" value="ajouter">
+                    <div class="form-group">
+                        <label></label>
+                        <?php 
+                        if (!empty($success)) {
+                            echo "<p class='success'>$success</p>";
+                        } elseif (!empty($error)) {
+                            echo "<p class='error'>$error</p>";
+                        }
+                        ?>
+                    </div>
                     <div class="form-group">
                         <label for="nom">Nom :</label>
                         <input type="text" id="nom" name="nom" required>
