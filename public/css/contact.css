@@ -6,7 +6,7 @@
   --couleur-noir: #000000;
 
   --border-radius-bouton: 0.7em;
-  --maw-width-container: 124em;
+  --maw-width-container: 134em;
 }
 
 * {
@@ -36,6 +36,7 @@ main {
     width: 100%;
     background-color: var(--couleur-fond-principal);
     box-sizing: border-box;
+    padding: 0 5em;
 }
 
 .orange {
@@ -140,40 +141,7 @@ textarea {
     margin-bottom: 1em;
 }
 
-@media screen and (max-width: 640px) {
-
-    .description h1 {
-        font-size: 1.4em;
-        font-family: 'Anton', sans-serif;
-        color: var(--couleur-texte-principal);
-        margin-bottom: 1.7em;
-    }
-
-    .description p{
-        width: 100%;
-        font-size: 1em;
-        color: var(--couleur-texte-principal);
-        font-weight: 100;
-        margin-top: 0.6em;
-    }
-
-    .contact {
-        margin-top: 4em;
-        padding: 2em;
-        flex-direction: column;
-    }
-
-    .description {
-        width: 100%;
-        padding: 5em 0;
-    }
-
-   .formulaire {
-        margin-bottom: 3em;
-   }
-}
-
-@media screen and (min-width: 900px) and (max-width: 1440px) {
+@media screen and (max-width: 1440px) {
 
     .contact {
         margin-top: 12em;
@@ -210,5 +178,65 @@ textarea {
 
     .formulaire button {
         padding: 0.5em;
+    }
+}
+
+@media screen and (max-width: 900px) {
+
+    .container {  
+        padding: 0 2em;
+    }
+
+    .description h1 {
+        font-size: 1.4em;
+        font-family: 'Anton', sans-serif;
+        color: var(--couleur-texte-principal);
+        margin-bottom: 1.7em;
+    }
+
+    .description p{
+        width: 100%;
+        font-size: 1em;
+        color: var(--couleur-texte-principal);
+        font-weight: 100;
+        margin-top: 0.6em;
+    }
+
+    .contact {
+        margin-top: 4em;
+        padding: 2em;
+        flex-direction: column;
+    }
+
+    .description {
+        width: 100%;
+        padding: 5em 0;
+    }
+
+   .formulaire {
+        margin-bottom: 3em;
+   }
+}
+
+@media screen and (max-width: 640px) {
+
+    .container {  
+        padding: 0 1em;
+    }
+}
+
+@media screen and (max-width: 400px) {
+
+    .container {  
+        padding: 0;
+    }
+
+    .description h1 {
+        font-size: 1.1em;
+        margin-bottom: 1.5em;
+    }
+
+    .description p{
+        font-size: 0.9em;
     }
 }

@@ -17,7 +17,6 @@ header {
     flex-wrap: nowrap;
     align-items: center;
     position: fixed;
-    padding-top: 1em;
     width: 100%;
     z-index: 10;
     background-color: var(--couleur-noir);
@@ -26,6 +25,7 @@ header {
     transform: translateY(-50px);
     transition: opacity 1.5s ease, transform 1.5s ease;
     padding: 0 10%;
+    padding-top: 1em;
 }
 
 
@@ -160,10 +160,6 @@ footer a.active {
 }
 
 @media screen and (max-width: 1800px) {
-
-    header {
-        padding-top: 1em;
-    }
 
     header > img {
         width: 4em;
