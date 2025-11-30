@@ -1,6 +1,5 @@
 ## A faire encore 
 
-- mise en place du respansive format tablette
 - redirection apres ajt update supp lieu
 - realiser la partie Éthique & Légal
 
@@ -15,3 +14,4 @@
 - mise en place du respansive format telephone
 - ajouter resultat de recherche : "bois"
 - reglage jpeg png jpg
+- mise en place du respansive format tablette

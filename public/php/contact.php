@@ -86,6 +86,10 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
                             <label for="message">Message :</label>
                             <textarea id="message" name="message" placeholder="Votre message..." rows="6" required></textarea>
                         </article>
+                        <label class="confidentialite">
+                            <input type="checkbox" required>
+                            J’accepte que mes informations soient utilisées uniquement pour être recontacté(e).
+                        </label>
                         <article>
                             <button type="submit">Envoyer</button>
                         </article>

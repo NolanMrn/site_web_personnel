@@ -141,6 +141,18 @@ textarea {
     margin-bottom: 1em;
 }
 
+.confidentialite {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    margin-bottom: 0.9em;
+}
+
+.confidentialite input {
+    width: auto;
+    margin: 0 0.5em 0 1.4em;
+}
+
 @media screen and (max-width: 1440px) {
 
     .contact {
