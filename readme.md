@@ -1,6 +1,6 @@
 ## A faire encore 
 
-- redirection apres ajt update supp lieu
+- responsive general lieu indiv
 
 # Fait
 
@@ -15,3 +15,5 @@
 - reglage jpeg png jpg
 - mise en place du respansive format tablette
 - realiser la partie Éthique & Légal
+- redirection apres ajt update supp lieu
+- regalge cadre photo

@@ -427,53 +427,27 @@ main {
 
     .voir_plus a {
         font-size: 0.8em;
+        margin-bottom: 3.4em;
     }
 
     .voir_plus img {
         width: 2em;
     }
 
+    .explos_recentes_photos>article article h2{
+        font-size: 1.5em;
+    }
+
     .explos_recentes_photos {
         gap: 3em;
     }
 
-    .explos_recentes_photos>article {
-        padding: 0.7em;
-    }
-
-    .content {
-        align-items: center;
-        width: 100%;
-        margin-top: 0;
-    }
-
-    .explos_recentes_photos>article article {
-        width: 70%;
-        padding-top: 0;
-    }
-
-    .explos_recentes_photos>article article h2{
-        font-size: 1.2em;
-        margin-top: 10%;
-        margin-bottom: 5%;
-    }
-
-    .explos_recentes_photos>article article div {
-        margin-top: 1em;
-    }
-
-    .explos_recentes_photos>article article img {
-        width: 1.7em;
-        height: auto;
-    }
-
-    .explos_recentes_photos>article article div p{
-        font-size: 0.8em;
+    .trait-blanc {
+        height: 0.11em;
     }
 
     .explos_recentes_photos>article a {
-        font-size: 1em;
-        margin-top: 1em;
+        font-size: 1.1em;
     }
 
     .insta {
@@ -510,6 +484,13 @@ main {
     }
 }
 
+@media screen and (max-width: 1300px) {
+
+    .explos_recentes_photos>article {
+        padding: 0.8em;
+    }
+}
+
 @media screen and (max-width: 1200px) {
 
     .photo_acc h1 {
@@ -519,6 +500,10 @@ main {
 
     .photo_acc a {
         font-size: 1.7em;
+    }
+
+    .explos_recentes_photos>article a {
+        font-size: 1em;
     }
 }
 
@@ -662,21 +647,8 @@ main {
         padding: 0.7em;
     }
 
-    .content {
-        align-items: center;
-        width: 100%;
-        margin-top: 0;
-    }
-
-    .explos_recentes_photos>article article {
-        width: 70%;
-        padding-top: 0;
-    }
-
     .explos_recentes_photos>article article h2{
         font-size: 1.2em;
-        margin-top: 10%;
-        margin-bottom: 5%;
     }
 
     .explos_recentes_photos>article article div {
@@ -685,7 +657,6 @@ main {
 
     .explos_recentes_photos>article article img {
         width: 1.7em;
-        height: auto;
     }
 
     .explos_recentes_photos>article article div p{
@@ -730,6 +701,13 @@ main {
     }
 }
 
+@media screen and (max-width: 500px) {
+
+    .explos_recentes_photos>article article {
+        padding-top: 5%;
+    }
+}
+
 @media screen and (max-width: 450px) {
     
     .photo_acc h1 {
@@ -737,7 +715,7 @@ main {
     }
 }
 
-@media screen and (max-width: 350px) {
+@media screen and (max-width: 370px) {
 
     .explos_recentes_photos {
         gap: 1em;
@@ -761,6 +739,10 @@ main {
 
     .trait-blanc {
         height: 0.08em; 
+    }
+
+    .explos_recentes_photos>article article {
+        padding-top: 0;
     }
 }
 
