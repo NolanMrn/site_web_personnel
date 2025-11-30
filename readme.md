@@ -1,7 +1,6 @@
 ## A faire encore 
 
 - redirection apres ajt update supp lieu
-- realiser la partie Éthique & Légal
 
 # Fait
 
@@ -15,3 +14,4 @@
 - ajouter resultat de recherche : "bois"
 - reglage jpeg png jpg
 - mise en place du respansive format tablette
+- realiser la partie Éthique & Légal

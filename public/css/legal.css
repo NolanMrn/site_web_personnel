@@ -1,0 +1,147 @@
+:root {
+  --couleur-boutton: #B85F49;
+  --couleur-fond-principal: #222222;
+  --couleur-texte-principal: #F0F0E0;
+  --couleur-blanc: #FFFFFF;
+  --couleur-noir: #000000;
+
+  --border-radius-bouton: 0.7em;
+  --maw-width-container: 134em;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    background-color: var(--couleur-fond-principal);
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+}
+
+main {
+    margin: 0;
+    padding: 0;
+    display: flex;
+    justify-content: center;
+    flex: 1;
+    background-color: var(--couleur-fond-principal);
+}
+
+.container {
+    max-width: var(--maw-width-container);
+    width: 100%;
+    background-color: var(--couleur-fond-principal);
+    box-sizing: border-box;
+    padding: 0 5em;
+}
+
+.orange {
+    color: var(--couleur-boutton);
+}
+
+.block {
+    margin-top: 15em;
+    margin-bottom: 5em;
+}
+
+main h1 {
+    font-size: 3em;
+    font-family: 'Anton', sans-serif;
+    color: var(--couleur-texte-principal);
+}
+
+main h3 {
+    color: var(--couleur-texte-principal);
+    font-size: 2em;
+    margin: 2em 0 1em 0;
+    font-family: 'Antonio', sans-serif;
+}
+
+main p {
+    color: var(--couleur-texte-principal);
+    margin: 0.3em 0;
+    margin-left: 1em;
+    font-size: 1.2em;
+}
+
+main ul {
+    margin: 1em 0;
+}
+
+main li {
+    color: var(--couleur-texte-principal);
+    margin: 0.3em 0;
+    margin-left: 3em;
+    font-size: 1.2em;
+}
+
+.maj {
+    margin-left: 0;
+    margin-top: 2em;
+}
+
+main a {
+    transition: 0.3s;
+    text-decoration: none;
+    color: var(--couleur-texte-principal);
+}
+
+main a:hover {
+    color: var(--couleur-boutton);
+}
+
+@media screen and (max-width: 1440px) {
+
+    .block {
+        margin-top: 12em;
+    }
+
+    main h1 {
+        font-size: 2.3em;
+    }
+
+    main h3 {
+        font-size: 1.5em;
+    }
+
+    main p,
+    main li {
+        font-size: 1em;
+    }
+}
+
+@media screen and (max-width: 640px) {
+    
+    .container {
+        padding: 0 1em;
+    }
+}
+
+@media screen and (max-width: 400px) {
+
+    .container {  
+        padding: 0 0.5em;
+    }
+
+        
+    .block {
+        margin-top: 10em;
+    }
+
+    main h1 {
+        font-size: 1.5em;
+    }
+
+    main h3 {
+        font-size: 1em;
+    }
+
+    main p,
+    main li {
+        font-size: 0.9em;
+    }
+}

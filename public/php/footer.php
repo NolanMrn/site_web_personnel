@@ -23,9 +23,9 @@ $page_actuelle = basename($_SERVER['PHP_SELF']);
         <article>
             <h3>Éthique & Légal</h3>
             <ul>
-                <li>Mentions Légales</li>
-                <li>Politique de Confidentialité</li>
-                <li>CGU & Droit d'Auteur</li>
+                <li><a href="/site_web/public/php/mentionsLegales.php">Mentions Légales</a></li>
+                <li><a href="/site_web/public/php/confidentialite.php">Politique de Confidentialité</a></li>
+                <li><a href="/site_web/public/php/droitsAuteur.php">CGU & Droit d'Auteur</a></li>
             </ul>
         </article>
     </section>
