@@ -7,11 +7,12 @@
 }
 
 .container {
-    max-width: 110em;
+    max-width: 123em;
     width: 100%;
     min-height: 100vh;
     box-sizing: border-box;
     background-color: var(--couleur-fond-principal);
+    padding: 0 5em;
 }
 
 main {
@@ -136,15 +137,117 @@ main a:hover {
     align-items: center;
 }
 
-@media screen and (max-width: 640px) {
+@media screen and (max-width: 1600px) {
+    
+    .container {
+        padding: 0 4em;
+    }
+
+    .exploration p {
+        font-size: 1.2em;
+    }
+
+    .histoire h1 {
+        font-size: 2.2em;
+    }
+
+    .histoire img {
+        width: 4em;
+    }
+
+    .histoire .titre p {
+        font-size: 1.4em;
+    }
+
+    .histoire>p {
+        font-size: 1.2em;
+    }
+
+    .exploration article {
+        margin: 1em 2.5em 1em 2.1em;
+    }
+}
+
+@media screen and (max-width: 1450px) {
 
     .retour {
-        font-size: 1em;
-        margin: 0;
-        padding-top: 9em;
-        padding-bottom: 1em;
-        margin-left: 1.9em;
+        font-size: 1.5em;
+        padding-top: 7em;
     }
+
+    .exploration article {
+        margin: 1em 2em 1em 1.6em;
+        padding: 0.8em;
+    }
+}
+
+@media screen and (max-width: 1200px) {
+
+    .exploration article {
+        margin: 1em 1em 1em 0.6em;
+        padding: 0.7em;
+    }
+}
+
+@media screen and (max-width: 950px) {
+
+    .container {
+        padding: 0 2em;
+    }
+
+    .exploration p {
+        font-size: 1em;
+    }
+
+    .histoire h1 {
+        font-size: 2em;
+    }
+
+    .histoire img {
+        width: 3.5em;
+    }
+
+    .histoire .titre p {
+        font-size: 1.2em;
+    }
+
+    .histoire>p {
+        font-size: 1em;
+    }
+}
+
+@media screen and (max-width: 800px) {
+
+    .container {
+        padding: 0 2em;
+    }
+
+    .exploration p {
+        font-size: 0.9em;
+    }
+
+    .histoire h1 {
+        font-size: 1.9em;
+    }
+
+    .histoire img {
+        width: 3.5em;
+    }
+
+    .histoire .titre p {
+        font-size: 1.1em;
+    }
+
+    .histoire>p {
+        font-size: 0.9em;
+    }
+
+    .exploration article {
+        padding: 0.55em;
+    }
+}
+
+@media screen and (max-width: 750px) {
 
     .titre {
         flex-wrap: wrap;
@@ -157,7 +260,7 @@ main a:hover {
     }
 
     .histoire h1 {
-        font-size: 1.4em;
+        font-size: 2em;
     }
 
     .histoire img {
@@ -184,6 +287,21 @@ main a:hover {
         font-size: 1em;
         margin-top: 2em;
         border-left: 0.15em solid var(--couleur-boutton);
+    }
+}
+
+@media screen and (max-width: 640px) {
+
+    .retour {
+        font-size: 1em;
+        margin: 0;
+        padding-top: 9em;
+        padding-bottom: 1em;
+        margin-left: 1.9em;
+    }
+    
+    .histoire h1 {
+        font-size: 1.4em;
     }
 
     .exploration {
