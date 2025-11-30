@@ -1,6 +1,13 @@
 <?php
+
 require_once __DIR__ . '/../connexion_bd.php';
 require_once __DIR__ . '/../fonctions.php';
+
+$success = '';
+$error = '';
+if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['action'])) {
+    include 'save_lieu.php';
+}
 
 $allLieux = getAllLieux($conn);
 
@@ -59,6 +66,18 @@ if ($galeriesSelectionne != null) {
                 <section class="deuxForm">
                     <form method="POST" action="">
                         <div class="form-group">
+                            <label></label>
+                            <?php 
+                            if (!empty($success)) {
+                                echo "<p class='success'>$success</p>";
+                            } elseif (!empty($error)) {
+                                echo "<p class='error'>$error</p>";
+                            } else {
+                                echo "<p></p>";
+                            }
+                            ?>
+                        </div>
+                        <div class="form-group">
                             <label for="lieu">Liste des Lieux :</label>
                             <select id="lieu" name="lieu" onchange=this.form.submit() required>
                                 <option value="" disabled <?= $slugSelectionne ? '' : 'selected' ?>></option>
@@ -77,7 +96,7 @@ if ($galeriesSelectionne != null) {
                             </select>
                         </div>
                     </form>
-                    <form class="form_lieu <?= $lieuSelectionne ? 'visible' : '' ?>" method="POST" action="save_lieu.php" onsubmit="return validerFormulaire()">
+                    <form class="form_lieu <?= $lieuSelectionne ? 'visible' : '' ?>" method="POST" onsubmit="return validerFormulaire()">
                         <input type="hidden" name="nbSections" id="nbSections" value="<?php echo $nbSections; ?>">
                         <input type="hidden" name="nbPhotos" id="nbPhotos" value="<?php echo $nbPhotos; ?>">
                         <input type="hidden" name="idLieu" id="idLieu" value="<?php echo $idLSelectionne; ?>">

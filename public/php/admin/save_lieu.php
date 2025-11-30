@@ -82,23 +82,31 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
                     }
                 }
             }
-            updateLieuEntier($conn, $idL, $categorie, $nom, $date_explo_bonne, $num_banniere, $histoire, $slug, $nbSections, $listeCadrageFinal, $listeParagraphe);
-            /*echo "Lieu modifié avec succès !";*/
+            try {
+                updateLieuEntier($conn, $idL, $categorie, $nom, $date_explo_bonne, $num_banniere, $histoire, $slug, $nbSections, $listeCadrageFinal, $listeParagraphe);
+                $success = "Lieu modifié avec succès !";
+            } catch (Exception $e) {
+                $error = "Une erreur est survenue, veuillez réessayer.";
+            }
             break;
 
         case 'supprimer':
             $lieu = $_POST['lieu'] ?? '';
             list($slug, $categorie) = explode('|', $lieu);
-            $supp = supprimerLieuEntier($conn, $slug, $categorie);
-            if ($supp) {
-                /*echo "Le lieu a été supprimé avec succès !";*/
-            } else {
-                /*echo "Le lieu que vous vennez de choisir n'existe pas, veuillez réessayer";*/
+            try {
+                $supp = supprimerLieuEntier($conn, $slug, $categorie);
+                if ($supp) {
+                    $success = "Lieu a été supprimé avec succès !";
+                } else {
+                    $error = "Le lieu que vous vennez de choisir n'existe pas, veuillez réessayer";
+                }
+            } catch (Exception $e) {
+                $error = "Une erreur est survenue, veuillez réessayer.";
             }
             break;
 
         default:
-            /*echo "Aucune action reconnue.";*/
+            $error =  "Aucune action reconnue.";
     }
 }
 ?>
