@@ -1,5 +1,5 @@
 <?php
-require_once 'connexion_bd.php';
+require_once '../../connexion_bd.php';
 require_once 'fonctions.php';
 
 $troisDerniersLieux = getTroisDernierslLieux($conn);

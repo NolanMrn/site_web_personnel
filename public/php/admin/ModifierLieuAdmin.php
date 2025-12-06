@@ -1,6 +1,6 @@
 <?php
 
-require_once __DIR__ . '/../connexion_bd.php';
+require_once __DIR__ . '/../../../connexion_bd.php';
 require_once __DIR__ . '/../fonctions.php';
 
 $success = '';

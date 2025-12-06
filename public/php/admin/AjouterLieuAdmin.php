@@ -1,6 +1,6 @@
 <?php
 
-require_once __DIR__ . '/../connexion_bd.php';
+require_once __DIR__ . '/../../../connexion_bd.php';
 require_once __DIR__ . '/../fonctions.php';
 
 $success = '';
@@ -45,6 +45,8 @@ $nbPhotos = 0;
                             echo "<p class='success'>$success</p>";
                         } elseif (!empty($error)) {
                             echo "<p class='error'>$error</p>";
+                        } else {
+                            echo "<label></label>";
                         }
                         ?>
                     </div>

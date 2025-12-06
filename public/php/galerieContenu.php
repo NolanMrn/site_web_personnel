@@ -1,5 +1,5 @@
 <?php
-require_once 'connexion_bd.php';
+require_once '../../connexion_bd.php';
 require_once 'fonctions.php';
 
 $anneeFiltre = isset($_GET['annee']) ? intval($_GET['annee']) : null;

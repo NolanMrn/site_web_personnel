@@ -1,5 +1,5 @@
 <?php
-require_once 'fonctions.php';
+require_once __DIR__ . '/public/php/fonctions.php';
 initVenv();
 
 $host = $_ENV['BD_HOST'];
