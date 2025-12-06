@@ -63,15 +63,3 @@ create table STRUCTURE (
     ref int,
     foreign key (idL, nom_categorie) references LIEUX(idL, nom_categorie)
 );
-
-delimiter | 
-create or replace trigger GenererIdLieux before insert on LIEUX for each row
-begin 
-    declare IdActuel int;
-
-    select ifnull(max(idL), 0) into IdActuel from LIEUX 
-    where nom_categorie = NEW.nom_categorie;
-
-    set NEW.idL = IdActuel + 1;
-end |
-delimiter ;

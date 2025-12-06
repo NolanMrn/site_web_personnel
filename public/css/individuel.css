@@ -292,6 +292,10 @@ main a:hover {
 
 @media screen and (max-width: 640px) {
 
+    .container {
+        padding: 0;
+    }
+
     .retour {
         font-size: 1em;
         margin: 0;
