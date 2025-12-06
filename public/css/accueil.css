@@ -32,7 +32,7 @@ main {
     display: flex;
     justify-content: center;
     align-items: center;
-    background: url("/site_web/public/img/accueil/grande_photo_accueil.jpeg") center/cover no-repeat;
+    background: url("/img/accueil/grande_photo_accueil.jpeg") center/cover no-repeat;
     color: var(--couleur-texte-principal);
     box-shadow: 0 6px 60px 15px black;
 }

@@ -32,10 +32,10 @@ $histoireLieux = getHistoireLieux($conn, $lieu["idL"], $lieu["nom_categorie"]);
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" type="text/css" href="/site_web/public/css/individuel.css">
-    <link rel="stylesheet" type="text/css" href="/site_web/public/css/header.css">
+    <link rel="stylesheet" type="text/css" href="/css/individuel.css">
+    <link rel="stylesheet" type="text/css" href="/css/header.css">
     <title>Exploratio_nln</title>
-    <link rel="icon" type="image/PNG" href="/site_web/public/img/accueil/photo_profil.png">
+    <link rel="icon" type="image/PNG" href="/img/accueil/photo_profil.png">
     <link href="https://fonts.googleapis.com/css2?family=Antonio&display=swap" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Anton&display=swap" rel="stylesheet">
 </head>
@@ -44,7 +44,7 @@ $histoireLieux = getHistoireLieux($conn, $lieu["idL"], $lieu["nom_categorie"]);
     <main>
         <div class="container">
             <section class="retour">
-                <a class="back-button" href="/site_web/public/php/galerie.php">← Retour à la galerie</a>
+                <a class="back-button" href="/php/galerie.php">← Retour à la galerie</a>
             </section>
             <section class="histoire">
                 <div class="titre">
@@ -52,7 +52,7 @@ $histoireLieux = getHistoireLieux($conn, $lieu["idL"], $lieu["nom_categorie"]);
                         <?php
                             printf('<h1>%s</h1>', $titreFinal);
                             printf(
-                                '<img src="/site_web/public/img/accueil/drapeau_%s.png" alt="drapeau %s">',
+                                '<img src="/img/accueil/drapeau_%s.png" alt="drapeau %s">',
                                 htmlspecialchars($pays),
                                 htmlspecialchars($pays)
                             );
@@ -76,7 +76,7 @@ $histoireLieux = getHistoireLieux($conn, $lieu["idL"], $lieu["nom_categorie"]);
                         foreach ($images as $img) {
                             $cheminPhysique = $_SERVER['DOCUMENT_ROOT'] . $img['chemin'];
                             if (!file_exists($cheminPhysique)) {
-                                $cheminImg = "/site_web/public/img/accueil/image_defaut.png";
+                                $cheminImg = "/img/accueil/image_defaut.png";
                             } else {
                                 $cheminImg = $img['chemin'];
                             }
@@ -94,7 +94,7 @@ $histoireLieux = getHistoireLieux($conn, $lieu["idL"], $lieu["nom_categorie"]);
         </div>
     </main>
     <?php include 'footer.php'; ?>
-    <script src="/site_web/public/js/animation.js"></script>
-    <script src="/site_web/public/js/responsive.js"></script>
+    <script src="/js/animation.js"></script>
+    <script src="/js/responsive.js"></script>
 </body>
 </html>

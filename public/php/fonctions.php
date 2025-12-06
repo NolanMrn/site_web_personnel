@@ -305,7 +305,7 @@ function verifOuAjtCategorie($conn, $categorie) {
 }
 
 function bonneExtension($conn, $categorie, $slug, $NumCheminImgBanniere) {
-    $BaseChemin = "/site_web/public/img/" . nettoyerTexte($categorie) . "/" . $slug . "/image" . $NumCheminImgBanniere;
+    $BaseChemin = "/img/" . nettoyerTexte($categorie) . "/" . $slug . "/image" . $NumCheminImgBanniere;
     $extensions = [".jpeg", ".jpg", ".png"];
     $chemin = null;
 
@@ -317,7 +317,7 @@ function bonneExtension($conn, $categorie, $slug, $NumCheminImgBanniere) {
         }
     }
      if ($chemin === null) {
-        $chemin = "/site_web/public/img/default-placeholder.jpeg";
+        $chemin = "/img/default-placeholder.jpeg";
     }
     return $chemin;
 }

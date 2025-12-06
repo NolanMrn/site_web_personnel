@@ -48,8 +48,8 @@ if (boutonMenu && navMenu && iconMenu) {
     boutonMenu.addEventListener("click", () => {
 
         iconMenu.src = iconMenu.src.includes("hamburger.png")
-        ? "/site_web/public/img/accueil/annuler.png"
-        : "/site_web/public/img/accueil/hamburger.png";
+        ? "/img/accueil/annuler.png"
+        : "/img/accueil/hamburger.png";
 
         if (navMenu.classList.contains("active")) {
             navMenu.style.height = navMenu.scrollHeight + "px";

@@ -2,6 +2,10 @@
 require_once 'fonctions.php';
 initVenv();
 
+$host = $_ENV['BD_HOST'];
+$user = $_ENV['BD_USER'];
+$pass = $_ENV['BD_PASSWORD'];
+$db = $_ENV['BD_DATABASE_NAME'];
 
 $conn = new mysqli($host, $user, $pass, $db);
 
