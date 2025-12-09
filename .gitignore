@@ -3,4 +3,5 @@
 *.pdf
 connexion_bd.php
 vendor
-*.zip
+watermark_all.py
+Anton
