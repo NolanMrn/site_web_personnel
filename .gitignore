@@ -2,3 +2,5 @@
 .env
 *.pdf
 connexion_bd.php
+vendor
+*.zip
