@@ -91,7 +91,7 @@ main {
     width: 2.3em;
     height: 2.3em;
     background-color: var(--couleur-boutton);
-    background-image: url('/site_web/public/img/accueil/annuler.png');
+    background-image: url('/img/accueil/annuler.png');
     background-size: 60%;
     background-repeat: no-repeat;
     background-position: center;
@@ -110,7 +110,7 @@ main {
 .filtre .btn_recherche {
     width: 2.3em;
     height: 2.3em;
-    background-image: url('/site_web/public/img/accueil/loupe.png');
+    background-image: url('/img/accueil/loupe.png');
     background-size: 60%;
     background-color: transparent;
     background-repeat: no-repeat;

@@ -36,16 +36,16 @@ $AllAnnees = getAllAnnees($conn);
                 <section class="telephone">
                     <p>Nombre total de Lieux : <?php echo htmlspecialchars($nbLieuxTotal) ?></p>
                     <button id="btn-filtre" class="btn-filtre">
-                        <img src="/site_web/public/img/accueil/filtre.png" alt="Icône filtre">
+                        <img src="/img/accueil/filtre.png" alt="Icône filtre">
                         Filtres
                     </button>
                 </section>
                 <section class="navFiltre">
                     <section class="haut">
                         <p>Filtres</p>
-                        <a href="/site_web/public/php/galerie.php" class="btn_croix"></a>
+                        <a href="/php/galerie.php" class="btn_croix"></a>
                     </section>
-                    <form class="recherche" method="get" action="/site_web/public/php/galerie.php">
+                    <form class="recherche" method="get" action="/php/galerie.php">
                         <button type="submit" class="btn_recherche"></button>
                         <input type="text" name="recherche" class="recherche_case" placeholder="Rechercher un lieu précis..." value="<?php echo htmlspecialchars($recherche); ?>">
                     </form>
@@ -66,7 +66,7 @@ $AllAnnees = getAllAnnees($conn);
                                 if ($anneeFiltre) {
                                     $url .= ($url ? "&" : "?") . "annee=" . $anneeFiltre;
                                 }
-                                $href = $url ?: "/site_web/public/php/galerie.php";
+                                $href = $url ?: "/php/galerie.php";
                                 printf('<li><a href="%s" class="btn_filtre anim-link %s">%s</a></li>', 
                                     $href,
                                     $isActive,
@@ -93,7 +93,7 @@ $AllAnnees = getAllAnnees($conn);
                                 if ($anneeFiltre) {
                                     $url .= ($url ? "&" : "?") . "annee=" . $anneeFiltre;
                                 }
-                                $href = $url ?: "/site_web/public/php/galerie.php";
+                                $href = $url ?: "/php/galerie.php";
                                 printf(
                                     '<li><a href="%s" class="btn_filtre anim-link %s">%s</a></li>',
                                     $href,
@@ -121,7 +121,7 @@ $AllAnnees = getAllAnnees($conn);
                                 if ($anneeParam) {
                                     $url .= ($url ? "&" : "?") . $anneeParam;
                                 }
-                                $href = $url ?: "/site_web/public/php/galerie.php";
+                                $href = $url ?: "/php/galerie.php";
                                 printf('<li><a href="%s" class="btn_filtre anim-link %s">%s</a></li>',
                                     $href,
                                     $isActive,
@@ -147,7 +147,7 @@ $AllAnnees = getAllAnnees($conn);
                     $cheminImg = htmlspecialchars(getImageBanniere($conn, $lieu["idL"], $categorie));
                     $cheminPhysique = $_SERVER['DOCUMENT_ROOT'] . $cheminImg;
                     if (!file_exists($cheminPhysique)) {
-                        $cheminImg = "/site_web/public/img/accueil/image_defaut.png";
+                        $cheminImg = "/img/accueil/image_defaut.png";
                     }
                     $pays = htmlspecialchars(getPays($conn, $lieu["idL"], $categorie));
                     $nom = htmlspecialchars($lieu["nom"]);
@@ -155,7 +155,7 @@ $AllAnnees = getAllAnnees($conn);
                     $moisChiffre = htmlspecialchars(substr($lieu["date_explo"], 5, 2));
                     $slug = htmlspecialchars($lieu["slug"]);
                     $lienUrl = htmlspecialchars(
-                        "/site_web/public/php/lieu_indiv.php?slug={$slug}&categorie={$categorie}");
+                        "/php/lieu_indiv.php?slug={$slug}&categorie={$categorie}");
                     ?>
                     <article class="unLieu">
                         <img src="<?php echo $cheminImg ?>" alt="">
@@ -167,7 +167,7 @@ $AllAnnees = getAllAnnees($conn);
                                     <hr class="trait-blanc">
                                 </div>
                                 <div>
-                                    <img src="/site_web/public/img/accueil/drapeau_<?php echo $pays ?>.png" alt="">
+                                    <img src="/img/accueil/drapeau_<?php echo $pays ?>.png" alt="">
                                     <p><?php echo $moisChiffre ?>/<?php echo $annee ?></p>
                                 </div>
                             </article>

@@ -1,6 +1,11 @@
 <?php
 
-require_once __DIR__ . '/../../../connexion_bd.php';
+$admin = false;
+if (isset($_SERVER['PHP_AUTH_USER'])) {
+    $admin = true;
+}
+   
+require_once __DIR__ . '/../connexion_bd.php';
 require_once __DIR__ . '/../fonctions.php';
 
 $success = '';
@@ -21,10 +26,18 @@ $nbPhotos = 0;
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" type="text/css" href="/site_web/public/css/admin.css">
-    <link rel="stylesheet" type="text/css" href="/site_web/public/css/header.css">
-    <title>Exploratio_nln</title>
-    <link rel="icon" type="image/PNG" href="/site_web/public/img/accueil/photo_profil.png">
+    <link rel="stylesheet" type="text/css" href="/css/admin.css">
+    <link rel="stylesheet" type="text/css" href="/css/header.css">
+    <?php 
+    if ($admin) { ?>
+        <title>Exploratio_nln Admin</title>
+        <?php 
+    } else { ?>
+        <title>Exploratio_nln</title>
+        <?php 
+    }     
+    ?>
+    <link rel="icon" type="image/PNG" href="/img/accueil/photo_profil.png">
     <link href="https://fonts.googleapis.com/css2?family=Antonio&display=swap" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Anton&display=swap" rel="stylesheet">
 </head>
@@ -124,13 +137,13 @@ $nbPhotos = 0;
                     <script>
                         const sections = new Map();
                     </script>
-                    <script src="/site_web/public/js/admin.js">
+                    <script src="/js/admin.js">
                     </script>
                 </form>
             </section>
         </div>
     </main>
     <?php include '../footer.php'; ?>
-    <script src="/site_web/public/js/animation.js"></script>
+    <script src="/js/animation.js"></script>
 </body>
 </html>

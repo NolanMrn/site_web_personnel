@@ -1,7 +1,5 @@
 ## A faire encore 
 
-- responsive general lieu indiv
-
 # Fait
 
 - page contact.php
@@ -17,3 +15,4 @@
 - realiser la partie Éthique & Légal
 - redirection apres ajt update supp lieu
 - regalge cadre photo
+- responsive general lieu indiv

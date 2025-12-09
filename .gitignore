@@ -1,3 +1,7 @@
 .htpasswd
 .env
 *.pdf
+connexion_bd.php
+vendor
+watermark_all.py
+Anton
