@@ -1,18 +1,18 @@
-## A faire encore 
+# Exploratio_nln
 
-# Fait
+### créateur : MORAIN Nolan
 
-- page contact.php
-- possibilité de modifier et supprimer un lieu deja crée
-- refaire partie instagram
-- divisier page galerie en plusieurs (12 lieux max par page)
-- supprimer categorie si dernier lieu de cette categorie supp
-- animation js sur l'ensemble du site
-- mise en place du respansive format telephone
-- ajouter resultat de recherche : "bois"
-- reglage jpeg png jpg
-- mise en place du respansive format tablette
-- realiser la partie Éthique & Légal
-- redirection apres ajt update supp lieu
-- regalge cadre photo
-- responsive general lieu indiv
+Lien vers le Site : https://exploratio-nln.fr
+
+## 1. Fonctionnalités
+
+- 📸 Galerie d'images de tous les lieux.
+- 📝 Description détaillé avec photos de chaque lieu.
+- 📧 Possibilité de contacter le créateur du site
+- 📱 Design responsive pour consultation sur mobile.
+
+## 2. Technologies Utilisées
+
+- Frontend : HTML, CSS, JavaScript
+- Backend : PHP
+- Base de Données : MySQL
