@@ -16,3 +16,12 @@ Lien vers le Site : https://exploratio-nln.fr
 - Frontend : HTML, CSS, JavaScript
 - Backend : PHP
 - Base de Données : MySQL
+
+## 3. Quelques captures du site web
+
+![accueil](./public/img/captures/accueil1.png)
+![accueil](./public/img/captures/accueil2.png)
+![accueil](./public/img/captures/galerie.png)
+![accueil](./public/img/captures/individuel.png)
+![accueil](./public/img/captures/contact.png)
+![accueil](./public/img/captures/confidentialite.png)
